@@ -2,6 +2,8 @@ Dummy::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  mount Cornerstone::Engine => "/cornerstone"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -56,3 +58,4 @@ Dummy::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
