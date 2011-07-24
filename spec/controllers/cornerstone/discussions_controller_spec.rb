@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe TesterController do
+describe Cornerstone::DiscussionsController do
 
   describe "GET 'index'" do
     it "should be successful" do
@@ -10,3 +10,4 @@ describe TesterController do
   end
 
 end
+

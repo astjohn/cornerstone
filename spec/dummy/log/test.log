@@ -1,0 +1,44 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (115.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (91.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCornerstoneDiscussions (20110723004024)
+  [1m[35m (1.2ms)[0m  CREATE TABLE "cornerstone_discussions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "category" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110723004024')[0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("cornerstone_discussions")
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (14.0ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sat, 23 Jul 2011 20:47:11 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sat, 23 Jul 2011 20:47:11 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (13.7ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sat, 23 Jul 2011 20:47:43 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sat, 23 Jul 2011 20:47:43 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (13.9ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sat, 23 Jul 2011 21:21:13 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sat, 23 Jul 2011 21:21:13 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUser (20110724011421)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110724011421')
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("cornerstone_discussions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (32.0ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sun, 24 Jul 2011 01:32:38 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sun, 24 Jul 2011 01:32:38 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (31.5ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sun, 24 Jul 2011 01:34:18 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sun, 24 Jul 2011 01:34:18 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (30.5ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sun, 24 Jul 2011 01:38:26 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sun, 24 Jul 2011 01:38:26 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (13.5ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sun, 24 Jul 2011 01:39:13 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sun, 24 Jul 2011 01:39:13 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (30.8ms)[0m  INSERT INTO "cornerstone_discussions" ("body", "category", "created_at", "email", "name", "subject", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["body", nil], ["category", nil], ["created_at", Sun, 24 Jul 2011 01:39:40 UTC +00:00], ["email", "jb@gmail.com"], ["name", "Joe Blow"], ["subject", nil], ["updated_at", Sun, 24 Jul 2011 01:39:40 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
