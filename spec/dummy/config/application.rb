@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require
 require "cornerstone"
+require "devise"
 
 module Dummy
   class Application < Rails::Application
