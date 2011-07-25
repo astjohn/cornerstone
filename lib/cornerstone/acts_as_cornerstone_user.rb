@@ -2,10 +2,7 @@ module Cornerstone
 
   module ActsAsCornerstoneUser
 
-    def self.included(base)
-      base.send :include, InstanceMethods
-      base.send :extend, ClassMethods
-    end
+    extend ActiveSupport::Concern
 
     module ClassMethods
 
