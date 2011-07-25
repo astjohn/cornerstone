@@ -3,6 +3,7 @@ module Cornerstone
   module ActsAsCornerstoneUser
 
     def self.included(base)
+      base.send :include, InstanceMethods
       base.send :extend, ClassMethods
     end
 
@@ -13,7 +14,11 @@ module Cornerstone
         #= Associations
         has_many :cornerstone_discussions
 
-        send :include, InstanceMethods
+
+        #= Options
+        Cornerstone::Config.auth_with << options[:auth_with] if options[:auth_with]
+        Cornerstone::Config.auth_with.flatten!
+
       end
     end
 
