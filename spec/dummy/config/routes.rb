@@ -1,10 +1,12 @@
-Dummy::Application.routes.draw do
+Rails.application.routes.draw do
+  get "tester/index"
+
   devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  mount Cornerstone::Engine => "/cornerstone", :as => "cornerstone"
+  mount Cornerstone::Engine => "/cornerstone"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -52,7 +54,7 @@ Dummy::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'tester#index'
 
   # See how all your routes lay out with "rake routes"
 

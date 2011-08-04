@@ -8,13 +8,10 @@ module Cornerstone
 
       def acts_as_cornerstone_user(options = {})
 
-        #= Associations
+        # == Associations
         has_many :cornerstone_discussions
 
-
-        #= Options
-        Cornerstone::Config.auth_with << options[:auth_with] if options[:auth_with]
-        Cornerstone::Config.auth_with.flatten!
+        # == Options
 
       end
     end

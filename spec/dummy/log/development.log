@@ -60,3 +60,697 @@ Migrating to DeviseCreateUsers (20110724194307)
   [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
   [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
   [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-29 11:51:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (15.2ms)
+
+
+Started GET "/cornerstone" for 127.0.0.1 at 2011-07-29 11:51:22 -0400
+  Processing by Cornerstone::HelpController#index as HTML
+Rendered /home/adam/webdev/cornerstone/app/views/cornerstone/help/index.html.erb (0.3ms)
+Completed 200 OK in 25ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:51:27 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 60ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000003ae8000>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.7ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:52:06 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 50ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000003ae8000>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.7ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:52:21 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 61ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000002253468>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.6ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:52:26 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 51ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000002253468>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.5ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:52:27 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 52ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000002253468>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.2ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 11:52:27 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 53ms
+
+NoMethodError (undefined method `current_user' for #<Dummy::Application:0x00000002253468>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.1ms)
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 12:09:44 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+ActiveSupport::JSON::Encoding::CircularReferenceError (object references itself):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+
+
+Started GET "/tester" for 127.0.0.1 at 2011-07-29 12:09:54 -0400
+
+ActionController::RoutingError (No route matches [GET] "/tester"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-07-29 12:10:00 -0400
+  Processing by TesterController#index as HTML
+ERROR: compiling _app_views_tester_index_html_erb__1611145566896933694_16190380 RAISED /home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:4: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+');@output_buffer.append= ( if @user );@output_buffer.safe_concat('
+                                      ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:8: syntax error, unexpected keyword_else, expecting ')'
+'); else 
+        ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:12: syntax error, unexpected keyword_end, expecting ')'
+'); end 
+       ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:15: syntax error, unexpected keyword_ensure, expecting ')'
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:17: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_tester_index_html_erb__1611145566896933694_16190380(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "tester/index";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Tester#index</h1>
+<p>Find me in app/views/tester/index.html.erb</p>
+
+');@output_buffer.append= ( if @user );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+CURRENT USER FOUND
+
+'); else 
+@output_buffer.safe_concat('
+NO USER
+
+'); end 
+@output_buffer.safe_concat('
+');@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/template.rb:282:in `module_eval'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/template.rb:282:in `compile'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/template.rb:190:in `compile!'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/template.rb:143:in `block in render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications.rb:57:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/template.rb:142:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:40:in `block (2 levels) in render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/abstract_renderer.rb:33:in `block in instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications.rb:55:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/abstract_renderer.rb:33:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:39:in `block in render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:47:in `render_with_layout'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:38:in `render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:12:in `block in render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/abstract_renderer.rb:22:in `wrap_formats'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/template_renderer.rb:9:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/rendering.rb:120:in `_render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/streaming.rb:250:in `_render_template'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/rendering.rb:114:in `render_to_body'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/renderers.rb:30:in `render_to_body'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/compatibility.rb:43:in `render_to_body'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/rendering.rb:99:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/adam/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activerecord/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/base.rb:167:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/callbacks.rb:416:in `_run__1424820657764756024__process_action__2798001931061676469__callbacks'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/callbacks.rb:386:in `_run_process_action_callbacks'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications.rb:55:in `block in instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/notifications.rb:55:in `instrument'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/params_wrapper.rb:202:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activerecord/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/base.rb:121:in `process'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/abstract_controller/rendering.rb:45:in `process'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal.rb:193:in `dispatch'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_controller/metal.rb:236:in `block in action'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/routing/route_set.rb:65:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/routing/route_set.rb:29:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-mount-0.8.1/lib/rack/mount/route_set.rb:152:in `block in call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-mount-0.8.1/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-mount-0.8.1/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-mount-0.8.1/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-mount-0.8.1/lib/rack/mount/route_set.rb:141:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/routing/route_set.rb:531:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/warden-1.0.4/lib/warden/manager.rb:35:in `block in call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/warden-1.0.4/lib/warden/manager.rb:34:in `catch'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/warden-1.0.4/lib/warden/manager.rb:34:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/etag.rb:23:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/conditionalget.rb:25:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/flash.rb:243:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/session/abstract/id.rb:195:in `context'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/session/abstract/id.rb:190:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/cookies.rb:326:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activerecord/lib/active_record/query_cache.rb:62:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:466:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/callbacks.rb:392:in `_run_call_callbacks'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/reloader.rb:68:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/sendfile.rb:101:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/railties/lib/rails/rack/logger.rb:13:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/methodoverride.rb:24:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/runtime.rb:17:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/activesupport/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/lock.rb:15:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/static.rb:53:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/railties/lib/rails/engine.rb:454:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/railties/lib/rails/rack/content_length.rb:16:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/railties/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/gems/rack-1.3.1/lib/rack/handler/webrick.rb:59:in `service'
+/home/adam/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/adam/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/adam/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered tester/index.html.erb within layouts/application (78.8ms)
+Completed 500 Internal Server Error in 102ms
+
+ActionView::Template::Error (/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:4: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+');@output_buffer.append= ( if @user );@output_buffer.safe_concat('
+                                      ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:8: syntax error, unexpected keyword_else, expecting ')'
+'); else 
+        ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:12: syntax error, unexpected keyword_end, expecting ')'
+'); end 
+       ^
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:15: syntax error, unexpected keyword_ensure, expecting ')'
+/home/adam/webdev/cornerstone/spec/dummy/app/views/tester/index.html.erb:17: syntax error, unexpected keyword_end, expecting ')'):
+    1: <h1>Tester#index</h1>
+    2: <p>Find me in app/views/tester/index.html.erb</p>
+    3: 
+    4: <%= if @user %>
+    5: 
+    6: CURRENT USER FOUND
+    7: 
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (3.7ms)
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-07-29 12:10:18 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-07-29 12:10:18 -0400
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (1ms)  (pid 5500)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/tester.css  (0ms)  (pid 5500)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (0ms)  (pid 5500)
+Served asset /application.css - 200 OK  (23ms)  (pid 5500)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-07-29 12:10:18 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/cornerstone/discussions" for 127.0.0.1 at 2011-07-29 12:10:49 -0400
+  Processing by Cornerstone::DiscussionsController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+ActiveSupport::JSON::Encoding::CircularReferenceError (object references itself):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@cornerstone/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 11:37:10 -0400
+
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (11.7ms)
+
+
+Started GET "/cornerstone" for 127.0.0.1 at 2011-08-04 11:37:18 -0400
+  Processing by Cornerstone::HelpController#index as HTML
+Rendered /home/adam/webdev/cornerstone/app/views/cornerstone/help/index.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tester" for 127.0.0.1 at 2011-08-04 11:37:24 -0400
+
+ActionController::RoutingError (No route matches [GET] "/tester"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:37:44 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 23ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:37:44 -0400
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (12ms)  (pid 6382)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/tester.css  (3ms)  (pid 6382)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (0ms)  (pid 6382)
+Served asset /application.css - 200 OK  (43ms)  (pid 6382)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:37:44 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:43:48 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 67ms (Views: 66.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:43:48 -0400
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (0ms)  (pid 6415)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/tester.css  (0ms)  (pid 6415)
+Served asset /application.css - 304 Not Modified  (5ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:43:48 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-08-04 11:44:03 -0400
+  Processing by Devise::SessionsController#new as HTML
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/shared/_links.erb (1.2ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/sessions/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 120ms (Views: 15.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:44:03 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:44:03 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2011-08-04 11:44:07 -0400
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/shared/_links.erb (0.6ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/registrations/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 47ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:44:07 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:44:07 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started POST "/users" for 127.0.0.1 at 2011-08-04 11:44:16 -0400
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"STuQc9Nbu07oxfULtiUqIjBFTbFNXzh9UsDNyYi5Pb4=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1[0m
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/shared/_links.erb (0.6ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/registrations/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 175ms (Views: 6.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:44:16 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:44:16 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started POST "/users" for 127.0.0.1 at 2011-08-04 11:44:25 -0400
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"STuQc9Nbu07oxfULtiUqIjBFTbFNXzh9UsDNyYi5Pb4=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.0ms)[0m  SELECT 1 FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1
+  [1m[36mSQL (28.6ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 04 Aug 2011 15:44:25 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "test@test.com"], ["encrypted_password", "$2a$10$5JwEZ3gf0udh3MRlNYQP3Ow3fAsw/jFJZA4tKMB760wC.Uv7w7jJi"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 04 Aug 2011 15:44:25 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2011-08-04 15:44:26.047053', "current_sign_in_at" = '2011-08-04 15:44:26.047053', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2011-08-04 15:44:26.047939' WHERE "users"."id" = 1
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/tester.css  (0ms)  (pid 6415)
+Compiled ~/webdev/cornerstone/spec/dummy/app/assets/stylesheets/application.css  (0ms)  (pid 6415)
+Completed 500 Internal Server Error in 413ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::RegistrationsController:0x00000004652e18>):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.7ms)
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:46:21 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:46:22 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:46:22 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:46:24 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:46:24 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:46:24 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:46:56 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 37ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:46:56 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:46:56 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:46:58 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:46:58 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:46:58 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/tester/index" for 127.0.0.1 at 2011-08-04 11:47:06 -0400
+  Processing by TesterController#index as HTML
+Rendered tester/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:47:06 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:47:06 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-08-04 11:47:13 -0400
+  Processing by Devise::SessionsController#new as HTML
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/shared/_links.erb (0.6ms)
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/gems/devise-1.4.2/app/views/devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 30ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:47:13 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:47:13 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2011-08-04 11:47:19 -0400
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"STuQc9Nbu07oxfULtiUqIjBFTbFNXzh9UsDNyYi5Pb4=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@test.com' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2011-08-04 15:47:19.248562', "sign_in_count" = 2, "updated_at" = '2011-08-04 15:47:19.248973' WHERE "users"."id" = 1
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 283ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 11:47:19 -0400
+  Processing by TesterController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered tester/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 29ms (Views: 4.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:47:19 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:47:19 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 11:47:31 -0400
+  Processing by TesterController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered tester/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 48ms (Views: 2.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:47:31 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:47:31 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-08-04 11:47:39 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2011-08-04 11:47:45 -0400
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 26ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 11:47:45 -0400
+  Processing by TesterController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered tester/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 58ms (Views: 2.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2011-08-04 11:47:45 -0400
+Served asset /application.css - 304 Not Modified  (0ms)  (pid 6415)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2011-08-04 11:47:45 -0400
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /home/adam/webdev/cornerstone/spec/dummy/app/assets/javascripts/application.js:7)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+Started GET "/users/log_out" for 127.0.0.1 at 2011-08-04 11:47:50 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/log_out"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2011-08-04 11:47:54 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+
+Rendered /home/adam/.rvm/gems/ruby-1.9.2-p290@railsedge/bundler/gems/rails-66610db03722/actionpack/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUser (20110724011421)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "users" already exists: CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUser (20110724011421)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "users" already exists: CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (137.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (89.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUser (20110724011421)
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110724011421')[0m
+Migrating to DeviseCreateUsers (20110724194307)
+  [1m[35m (1.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110724194307')[0m
+Migrating to AddNameToUser (20110804174004)
+  [1m[35m (1.5ms)[0m  ALTER TABLE "users" ADD "name" varchar(255)
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110804174004')[0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCornerstoneDiscussions (20110723004024)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "cornerstone_discussions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "category" varchar(255), "subject" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110723004024')
+Migrating to CreateUser (20110724011421)
+Migrating to DeviseCreateUsers (20110724194307)
+Migrating to AddNameToUser (20110804174004)
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("cornerstone_discussions")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
