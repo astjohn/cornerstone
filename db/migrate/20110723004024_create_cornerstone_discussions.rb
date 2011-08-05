@@ -3,6 +3,7 @@ class CreateCornerstoneDiscussions < ActiveRecord::Migration
     create_table :cornerstone_discussions do |t|
       t.string :name
       t.string :email
+      t.integer :user_id
       t.string :category
       t.string :subject
       t.text :body
@@ -11,3 +12,4 @@ class CreateCornerstoneDiscussions < ActiveRecord::Migration
     end
   end
 end
+

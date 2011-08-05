@@ -1,8 +1,24 @@
-<h1>Discussions#index</h1>
-<p>Find me in app/views/cornerstone/discussions/index.html.erb</p>
+<h1>Listing Discussions</h1>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<% if @user %>
-FOUND CURRENT USER!
+<% @discussions.each do |discussion| %>
+  <tr>
+    <td><%= discussion.name %></td>
+    <td><%= link_to 'Show', discussion %></td>
+    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
+    <td><%= link_to 'Destroy', discussion, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
 <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New discussion', new_discussion_path %>
 
