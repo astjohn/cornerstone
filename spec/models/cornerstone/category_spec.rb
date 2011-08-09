@@ -3,6 +3,26 @@ require 'spec_helper'
 describe Cornerstone::Category do
 
   # == SCOPES == #
+  context "Scopes:" do
+    describe "#discussions" do
+      it "returns categories with category_type = Discussion" do
+        @category = Factory(:category, :category_type => "Discussion")
+        Factory(:category, :category_type => "Article")
+        test = Cornerstone::Category.discussions
+        test.size.should == 1
+        test.should == [@category]
+      end
+    end
+    describe "#articles" do
+      it "returns categories with category_type = Article" do
+        @category = Factory(:category, :category_type => "Article")
+        Factory(:category, :category_type => "Discussion")
+        test = Cornerstone::Category.articles
+        test.size.should == 1
+        test.should == [@category]
+      end
+    end
+  end
 
   # == VALIDATIONS == #
 

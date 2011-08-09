@@ -1,0 +1,11 @@
+<h1>Categories</h1>
+
+<%= link_to "New Category", new_category_path, :title => "New Category" %>
+
+<table id="discussion_categories">
+  <%= render :partial => "category", :collection => @discussion_categories %>
+</table>
+<table id="article_categories">
+  <%= render :partial => "category", :collection => @article_categories %>
+</table>
+

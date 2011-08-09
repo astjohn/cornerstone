@@ -1,0 +1,11 @@
+<% if rails_model.errors.any? %>
+  <div id="errors">
+    <span class="error_statement"><%= pluralize(rails_model.errors.size, "error") %> prohibited this <%= rails_model.class.name.downcase %> from being saved</span>
+      <ul>
+      <% rails_model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  </div>
+<% end %>
+

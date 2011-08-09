@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804191332) do
+ActiveRecord::Schema.define(:version => 20110809192216) do
 
   create_table "cornerstone_categories", :force => true do |t|
     t.string   "name"
     t.string   "category_type"
-    t.integer  "item_count"
+    t.integer  "item_count",    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

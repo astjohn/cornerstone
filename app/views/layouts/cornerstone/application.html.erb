@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cornerstone</title>
+  <%= stylesheet_link_tag    "cornerstone" %>
+  <%= javascript_include_tag "cornerstone" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render :partial => "cornerstone/shared/flash_messages" %>
+<%= yield %>
+
+</body>
+</html>
+

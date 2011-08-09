@@ -1,0 +1,15 @@
+<%= form_for(@category) do |f| %>
+  <%= render :partial => "cornerstone/shared/errors", :locals => {:rails_model => @category} %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <%= f.select :category_type, Cornerstone::Category::TYPES,
+                                 { :prompt => "Select a Type" }, :id => "category_type" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+

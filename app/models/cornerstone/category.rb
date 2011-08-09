@@ -2,13 +2,16 @@ module Cornerstone
   class Category < ActiveRecord::Base
 
     # == CONSTANTS == #
-    TYPES = [:discussion]
+    TYPES = ["Discussion", "Article"]
 
     # == ASSOCIATIONS == #
     has_many :discussions
 
     # == ACCESSIBILITY == #
     # == SCOPES == #
+
+    scope :discussions, lambda { where("cornerstone_categories.category_type = 'Discussion'") }
+    scope :articles, lambda { where("cornerstone_categories.category_type = 'Article'") }
 
     # == VALIDATIONS == #
     validates :name, :presence => true,
