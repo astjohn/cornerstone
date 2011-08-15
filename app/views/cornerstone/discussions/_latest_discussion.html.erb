@@ -1,0 +1,4 @@
+<%= link_to latest_discussion.created_at, discussion_path(category, latest_discussion),
+                                          :title => latest_discussion.subject %>
+by <%= category.latest_discussion_author %>
+

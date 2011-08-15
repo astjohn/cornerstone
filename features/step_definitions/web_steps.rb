@@ -217,3 +217,9 @@ Then /^I should see "([^"]*)" which links to "([^"]*)"$/ do |text, page_name|
   find_link(text)['href'].should == path_to(page_name)
 end
 
+And /^I select an option from "([^"]*)"$/ do |id|
+  second_option_xpath = "//*[@id='#{id}']/option[2]"
+  second_option = find(:xpath, second_option_xpath).text
+  select(second_option, :from => id)
+end
+

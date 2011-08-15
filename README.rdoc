@@ -1,3 +1,6 @@
 = Cornerstone
 
+This project is not suitable for use just yet.  Initial migrations will be changing.
+
 This project rocks and uses MIT-LICENSE.
+

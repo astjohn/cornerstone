@@ -1,24 +1,23 @@
-<h1>Listing Discussions</h1>
+<h1>Listing Discussion Categories</h1>
 
-<table>
+<table id="discussion_categories">
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Category</th>
+    <th>Discussion Count</th>
+    <th>Latest Discussion</th>
   </tr>
-
-<% @discussions.each do |discussion| %>
-  <tr>
-    <td><%= discussion.name %></td>
-    <td><%= link_to 'Show', discussion %></td>
-    <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-    <td><%= link_to 'Destroy', discussion, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <% unless @categories.empty? %>
+    <%= render :partial => "discussion_category", :collection => @categories %>
+  <% else %>
+    <tr>
+      <td>There are no categories yet.</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New discussion', new_discussion_path %>
+<%= link_to 'New Discussion', new_discussion_path, :title => "New Discussion" %>
 

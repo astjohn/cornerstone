@@ -2,6 +2,18 @@ require 'spec_helper'
 
 describe Cornerstone::Category do
 
+  # == ACCESSIBILITY == #
+  context "Accessibility:" do
+    before do
+      @category = Factory(:category)
+    end
+    {:item_count => 5}.each do |attr, value|
+      it "should not let me assign the ##{attr}" do
+        @category.should_not allow_mass_assignment_of(attr => value)
+      end
+    end
+  end
+
   # == SCOPES == #
   context "Scopes:" do
     describe "#discussions" do
@@ -32,16 +44,19 @@ describe Cornerstone::Category do
       @category = Factory(:category)
     end
 
-    [:name, :category_type].each do |attr|
+    [:name, :category_type, :description].each do |attr|
       it "requires a #{attr}" do
         @category.send("#{attr}=", nil)
         @category.should have(1).error_on(attr)
       end
     end
 
-    it "#name should be 50 characters or less" do
-      @category.name = random_alphanumeric(51)
-      @category.should have(1).error_on(:name)
+    {:name => 50,
+     :description => 500}.each do |attr, size|
+      it "##{attr} should be #{size} characters or less" do
+        @category.send("#{attr}=", random_alphanumeric(size + 1))
+        @category.should have(1).error_on(attr)
+      end
     end
 
     it "should only include the hard coded category types" do
@@ -53,30 +68,30 @@ describe Cornerstone::Category do
 
 
   # == CALLBACKS == #
-  context "Counter Cache" do
-    before do
-      @category = Factory(:category, :item_count => 1)
-    end
-
-    it "is increased when a discussion is created" do
-      @category.item_count.should == 1
-      @discussion = Factory(:discussion_no_user, :category => @category)
-      @category.reload
-      @category.item_count.should == 2
-    end
-
-    it "is decreased when a discussion is deleted" do
-      @discussion = Factory(:discussion_no_user, :category => @category)
-      @category.reload
-      @category.item_count.should == 2
-      @discussion.destroy
-      @category.reload
-      @category.item_count.should == 1
-    end
-  end
 
   # == CLASS METHODS == #
+
   # == INSTANCE METHODS == #
+  context "Instance Methods:" do
+    before do
+      @category = Factory(:category)
+    end
+
+    describe "#latest_discussions" do
+      it "calls the latest_discussion scope with the given number of results required" do
+        Cornerstone::Discussion.should_receive(:latest_for_category).with(@category, 5)
+        @category.latest_discussions(5)
+      end
+    end
+
+    describe "#latest_discussion" do
+      it "returns the latest discussion" do
+        d = Factory(:discussion, :category => @category)
+        @category.latest_discussion.should == d
+      end
+    end
+
+  end
 
 end
 

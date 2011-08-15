@@ -7,6 +7,10 @@ Cornerstone::Config.setup do |config|
   # if your application uses warden, use ':warden'.
   config.auth_with = :warden
 
+  # == Discussion Statuses
+  # An array of strings which specify the status options for a discussion.
+  # The first status option becomes the default value for the database
+  config.discussion_statuses = ["Open", "Resolved"]
 
 end
 

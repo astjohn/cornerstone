@@ -8,6 +8,8 @@ module Cornerstone
     has_many :discussions
 
     # == ACCESSIBILITY == #
+    attr_accessible :name, :category_type, :description
+
     # == SCOPES == #
 
     scope :discussions, lambda { where("cornerstone_categories.category_type = 'Discussion'") }
@@ -19,9 +21,23 @@ module Cornerstone
 
     validates :category_type, :inclusion => { :in => Cornerstone::Category::TYPES }
 
+    validates :description, :presence => true,
+                            :length => {:maximum => 500}
+
     # == CALLBACKS == #
     # == CLASS METHODS == #
+
     # == INSTANCE METHODS == #
+
+    # Provides the latest discussion created for this category
+    def latest_discussion
+      latest_discussions(1).first
+    end
+
+    # Provides the last 'num' discussions created for this category
+    def latest_discussions(num=nil)
+      Discussion.latest_for_category(self, num)
+    end
 
   end
 end

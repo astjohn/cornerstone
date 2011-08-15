@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.require_paths    = ["lib"]
 
 
-  #s.add_dependency('rails',  '>= 3.1.0.rc4')
+  s.add_dependency('rails',  '>= 3.1.0.rc5')
 
   s.add_development_dependency('bundler', '~> 1.0.0')
   s.add_development_dependency('sqlite3')
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency('devise')
   s.add_development_dependency('cucumber-rails')
   s.add_development_dependency('capybara')
+  s.add_development_dependency('pickle')
   s.add_development_dependency('database_cleaner')
 
 end

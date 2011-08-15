@@ -1,9 +1,3 @@
-Given /^the following categories:$/ do |table|
-  table.hashes.each do |attributes|
-    Factory.create(:category, attributes)
-  end
-end
-
 When /^I delete the (\d+)(?:st|nd|rd|th) category$/ do |pos|
   visit path_to "the categories page"
   within("table tr:nth-child(#{pos.to_i-1})") do

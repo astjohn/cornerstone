@@ -5,14 +5,18 @@ module Cornerstone
     extend ActiveSupport::Concern
 
     included do
-      helper_method :cornerstone_user
+      helper_method :current_cornerstone_user
     end
 
     # To determine if a user from the main application is signed in
     # Returns the user object or nil
-    def cornerstone_user
-      if Cornerstone::Config.auth_with == :warden
-        env['warden'].user
+    def current_cornerstone_user
+      if Config.auth_with == :warden
+        env['warden'].user if env['warden']
+      else
+        # TODO: this could be a spot to call a user specified helper.
+        #       need to call helper belonging to parent app.
+
       end
     end
 

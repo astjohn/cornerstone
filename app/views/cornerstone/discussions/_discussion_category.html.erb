@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= link_to discussion_category.name, discussions_category_path(discussion_category),
+                                 :title => discussion_category.name %>
+    <span class="discussion_category_description"><%= discussion_category.description %></span>
+  </td>
+  <td>
+    <%= discussion_category.item_count %>
+  </td>
+  <td>
+    <%= latest_discussion_details(discussion_category) %>
+  </td>
+</tr>
+

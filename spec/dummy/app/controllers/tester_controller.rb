@@ -1,6 +1,6 @@
 class TesterController < ApplicationController
   def index
-    @user = cornerstone_user
+    @user = current_cornerstone_user
   end
 
 end

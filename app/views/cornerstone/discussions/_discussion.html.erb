@@ -1,0 +1,12 @@
+<tr>
+  <td><%= link_to discussion.subject, discussion_path(category, discussion),
+                                      :title => discussion.subject %>
+      by <%= discussion.author %>
+  </td>
+  <td><%= discussion.status %></td>
+  <td><%= discussion.reply_count %></td>
+  <td><%= discussion.latest_post_date %>
+      by <%= discussion.latest_post_author %>
+  </td>
+</tr>
+

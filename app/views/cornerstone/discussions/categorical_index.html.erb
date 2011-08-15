@@ -1,0 +1,27 @@
+<h1>Discussions for <%= @category.name.titleize %></h1>
+<p><%= @category.description %></p>
+<table id="discussions">
+  <tr>
+    <th>Discussion</th>
+    <th>State</th>
+    <th>Replies</th>
+    <th>Latest Post</th>
+  </tr>
+  <% unless @discussions.empty? %>
+    <%= render :partial => "discussion", :collection => @discussions,
+                                         :locals => {:category => @category} %>
+  <% else %>
+    <tr>
+      <td>There are no discussions yet, be the first to ask something!</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Discussion', new_discussion_path(:cat => @category),
+                              :title => "New Discussion" %>
+
