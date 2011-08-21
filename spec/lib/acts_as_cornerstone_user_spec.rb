@@ -13,8 +13,10 @@ describe Cornerstone::ActsAsCornerstoneUser do
       TestUser.send(:acts_as_cornerstone_user)
     end
 
-    it "a Cornerstone Discussion should be related to the given model (User)" do
-      TestUser.reflect_on_association(:cornerstone_discussions).should_not be_nil
+    context "for Cornerstone::Discussion" do
+      it "a Cornerstone Discussion should be related to the given model (User)" do
+        TestUser.reflect_on_association(:cornerstone_discussions).should_not be_nil
+      end
     end
 
     it "a Cornerstone Post should be related to the given model (User)" do

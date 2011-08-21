@@ -11,15 +11,20 @@ module Cornerstone
         userclass = self.to_s.underscore.to_sym
 
         # == Associations
-        has_many :cornerstone_discussions, :foreign_key => :user_id
-        has_many :cornerstone_posts, :foreign_key => :user_id
+        has_many :cornerstone_discussions, :foreign_key => :user_id,
+                                           :class_name => "Cornerstone::Discussions"
+        has_many :cornerstone_posts, :foreign_key => :user_id,
+                                     :class_name => "Cornerstone::Posts"
 
         # TODO: dependent destroy? - how to handle when user account deleted?
         #                          - perhaps this can be an option specified in initializer
 
+
+        # TODO: Might need support for multiple user models such as AdminUser... etc.
         # send belongs_to user relationships
-        Cornerstone::Discussion.send(:belongs_to, userclass)
-        Cornerstone::Post.send(:belongs_to, userclass)
+        Cornerstone::Discussion.send(:belongs_to, :user, :class_name => userclass)
+        Cornerstone::Post.send(:belongs_to, :user, :class_name => userclass)
+
 
         # == Options
 
