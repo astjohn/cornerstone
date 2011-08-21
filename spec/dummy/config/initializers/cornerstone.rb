@@ -5,7 +5,7 @@ Cornerstone::Config.setup do |config|
   # Specify the method in which your application accesses the authenticated user.
   # This can either be the method name (as a symbol) such as ':current_user', or
   # if your application uses warden, use ':warden'.
-  config.auth_with = :warden
+  config.auth_with = Proc.new {|controller| controller.current_user}
 
   # == Discussion Statuses
   # An array of strings which specify the status options for a discussion.
