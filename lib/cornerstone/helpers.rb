@@ -14,7 +14,7 @@ module Cornerstone
       if Config.auth_with == :warden
         env['warden'].user if env['warden']
       elsif Config.auth_with.respond_to?(:call)
-        Config.auth_with.call(controller)
+        Config.auth_with.call(self)
       end
     end
 
