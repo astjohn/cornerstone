@@ -13,10 +13,8 @@ module Cornerstone
     def current_cornerstone_user
       if Config.auth_with == :warden
         env['warden'].user if env['warden']
-      else
-        # TODO: this could be a spot to call a user specified helper.
-        #       need to call helper belonging to parent app.
-
+      elsif Config.auth_with.respond_to?(:call)
+        Config.auth_with.call(self)
       end
     end
 
