@@ -30,7 +30,7 @@ Feature: Use Discussions
     And I press "Create"
     Then a user should exist with name: "Tester"
     And a discussion should exist with subject: "I need help!"
-    Then the discussion should be in the user's discussions
+    Then the discussion should be in the user's cornerstone_discussions
 
   Scenario: Click on new discussion from Category
     Given I am on "the new discussion page"

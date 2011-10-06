@@ -3,9 +3,11 @@ require 'spec_helper'
 describe Cornerstone::ActsAsCornerstoneUser do
 
   class TestUser < ActiveRecord::Base
+    include Cornerstone::ActsAsCornerstoneUser
   end
 
   class TestUserTwo < ActiveRecord::Base
+    include Cornerstone::ActsAsCornerstoneUser
   end
 
   context "associations:" do
@@ -24,22 +26,13 @@ describe Cornerstone::ActsAsCornerstoneUser do
     end
 
     context "belongs_to relationships" do
-      context "for Discussion" do
-        it "sets up the relationship for a Discussion" do
-          Cornerstone::Discussion.reflect_on_association(:test_user).should_not be_nil
-        end
+      it "sets up the relationship for a Discussion" do
+        Cornerstone::Discussion.reflect_on_association(:user).should_not be_nil
       end
 
       it "sets up the relationship for a Post" do
-        Cornerstone::Post.reflect_on_association(:test_user).should_not be_nil
+        Cornerstone::Post.reflect_on_association(:user).should_not be_nil
       end
-
-      it "can handle multiple relationships" do
-        TestUserTwo.send(:acts_as_cornerstone_user)
-        Cornerstone::Discussion.reflect_on_association(:test_user).should_not be_nil
-        Cornerstone::Discussion.reflect_on_association(:test_user_two).should_not be_nil
-      end
-
     end
   end
 
