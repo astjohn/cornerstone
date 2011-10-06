@@ -43,13 +43,13 @@ module Cornerstone
     # return the author name of the post
     def author_name
       #@cornerstone_name ||= anonymous_or_user_attr(:name)
-      anonymous_or_user_attr(:name)
+      anonymous_or_user_attr(:cornerstone_name)
     end
 
     # return the author email of the post
     def author_email
       #@cornerstone_email ||= anonymous_or_user_attr(:email)
-      anonymous_or_user_attr(:email)
+      anonymous_or_user_attr(:cornerstone_email)
     end
 
     #######
@@ -69,9 +69,14 @@ module Cornerstone
         mthd = "user_#{attr.to_s}"
         # TODO: rails caching is messing this relationship up.
         #       will .user work even if model name is something else. e.g. AdminUser ??
-        self.user.send(Cornerstone::Config.send(mthd))
+        self.user.send(attr)
       else
-        self.send(attr)
+        case attr
+        when :cornerstone_name
+          self.send(:name)
+        when :cornerstone_email
+          self.send(:email)
+        end
       end
     end
 
