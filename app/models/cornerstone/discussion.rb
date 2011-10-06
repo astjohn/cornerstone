@@ -36,7 +36,7 @@ module Cornerstone
     # == CLASS METHODS == #
 
     # == INSTANCE METHODS == #
-    def author
+    def author_name
       self.posts.first.author_name
     end
 

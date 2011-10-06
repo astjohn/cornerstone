@@ -141,7 +141,13 @@ describe Cornerstone::Discussion do
 
   # == INSTANCE METHODS == #
   context "Instance Methods:" do
-
+    describe "#author_name" do
+      it "return's the first post's author name" do
+        @user = Factory(:user, :name => "Joe Jingleheimershmeidt")
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @discussion.author_name.should == "Joe Jingleheimershmeidt"
+      end
+    end
 
   end
 
