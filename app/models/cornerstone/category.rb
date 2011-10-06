@@ -6,6 +6,7 @@ module Cornerstone
 
     # == ASSOCIATIONS == #
     has_many :discussions
+    has_many :articles
 
     # == ACCESSIBILITY == #
     attr_accessible :name, :category_type, :description

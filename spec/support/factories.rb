@@ -52,5 +52,11 @@ FactoryGirl.define do
     user
   end
 
+  factory :article, :class => Cornerstone::Article do
+    title "How to Create a Widget"
+    body "Step 1: bla bla"
+    category
+  end
+
 end
 

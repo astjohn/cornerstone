@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Article do
+describe Cornerstone::Article do
   before do
     @article = Factory.build(:article)
   end
