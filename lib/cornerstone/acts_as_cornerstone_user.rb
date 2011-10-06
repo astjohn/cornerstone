@@ -4,11 +4,15 @@ module Cornerstone
 
     extend ActiveSupport::Concern
 
+    included do
+
+    end
+
     module ClassMethods
 
       def acts_as_cornerstone_user(options = {})
 
-        userclass = self.to_s.underscore.to_sym
+        userclass = self.name
 
         # == Associations
         has_many :cornerstone_discussions, :foreign_key => :user_id,
