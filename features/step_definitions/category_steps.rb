@@ -5,13 +5,3 @@ When /^I delete the (\d+)(?:st|nd|rd|th) category$/ do |pos|
   end
 end
 
-Then /^I should see the following categories:$/ do |table|
-  table.hashes.each do |attributes|
-    attributes.each do |attr|
-      steps %Q{
-        Then I should see "#{attr[1]}"
-      }
-    end
-  end
-end
-

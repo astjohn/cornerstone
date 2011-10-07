@@ -16,11 +16,6 @@ Then /^I should see the following discussions:$/ do |table|
 end
 
 
-Then /^I should see the "([^"]*)" of the discussion$/ do |attr|
-  d = model('discussion')
-  Then "I should see \"#{d.send(attr.to_sym)}\""
-end
-
 #Given /^I enter a new discussion in the form$/ do
 #  steps %Q{
 #    When I select "Category - 1" from "discussion_category_id"

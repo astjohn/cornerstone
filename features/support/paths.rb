@@ -29,6 +29,17 @@ module NavigationHelpers
       c = Cornerstone::Category.find_by_name($1)
       engine_wrap(:edit_category_path, c)
 
+    when /the articles page/
+      engine_wrap(:articles_path)
+    when /the new article page/
+      engine_wrap(:new_article_path)
+    when /the article show page for '(.+)'/
+      a = Cornerstone::Article.find_by_title($1)
+      engine_wrap(:article_path, a)
+    when /the edit article page for '(.+)'/
+      a = Cornerstone::Article.find_by_title($1)
+      engine_wrap(:edit_article_path, a)
+
     # Pickle Paths - TODO: Does this work with isolated enigne paths???
     when /^#{capture_model}(?:'s)? page$/
       # eg. the forum's page

@@ -4,9 +4,6 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-<% unless options[:skip_javascript] -%>
-//= require <%= options[:javascript] %>
-//= require <%= options[:javascript] %>_ujs
-<% end -%>
+
 //= require_tree .
 

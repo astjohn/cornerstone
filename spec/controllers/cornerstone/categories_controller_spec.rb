@@ -131,13 +131,6 @@ describe Cornerstone::CategoriesController do
       response.should redirect_to(categories_path)
     end
 
-#    it "redirects to the unedited alerts list" do
-#      Alert.stub!(:find).and_return(mock_alert)
-#      mock_alert.should_receive(:trash!).and_return(:false)
-#      delete :destroy, :id => "1"
-#      response.should redirect_to(unedited_alerts_path)
-#    end
-
   end
 
 

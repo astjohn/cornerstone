@@ -1,0 +1,25 @@
+<h1>Listing Articles</h1>
+
+<table id="articles">
+  <tr>
+    <th>Title</th>
+    <th>Updated At</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% unless @articles.empty? %>
+    <%= render :partial => "article", :collection => @articles %>
+  <% else %>
+    <tr>
+      <td>There are no articles yet.</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path, :title => "New Article" %>
+

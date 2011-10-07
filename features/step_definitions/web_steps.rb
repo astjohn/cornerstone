@@ -223,3 +223,24 @@ And /^I select an option from "([^"]*)"$/ do |id|
   select(second_option, :from => id)
 end
 
+# look for the display of a model's attribute value
+Then /^I should see the "([^"]*)" of the ([^"]*)$/ do |attr, modl|
+  d = model(modl)
+  Then "I should see \"#{d.send(attr.to_sym)}\""
+end
+
+# look on index page for tabular data
+Then /^I should see the following (\w+:)$/ do |nothing, table|
+  table.hashes.each do |attributes|
+    attributes.each do |attr|
+      steps %Q{
+        Then I should see "#{attr[1]}"
+      }
+    end
+  end
+end
+
+Then /^what$/ do
+  puts page.html
+end
+

@@ -1,0 +1,22 @@
+<%= form_for(@article) do |f| %>
+  <%= render :partial => "cornerstone/shared/errors", :locals => {:rails_model => @article} %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, @categories, :id, :name,
+                                          :prompt => "Please select a category" %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
