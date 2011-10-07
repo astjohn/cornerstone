@@ -1,0 +1,18 @@
+TODO: Insert BreadCrumbs
+
+<h1><%= @discussion.subject %></h1>
+
+<% if @discussion.privte %>
+  <p>This discussion is private.</p>
+<% end %>
+
+<p><b>Status:</b> <%= @discussion.status %></p>
+<table id="discussion_posts">
+<%= render :partial => "cornerstone/posts/post", :collection => @posts %>
+</table>
+
+<div id="reply_form">
+<%= render :partial => "cornerstone/posts/form", :locals => {:post => @new_post,
+                                                             :discussion => @discussion} %>
+</div>
+

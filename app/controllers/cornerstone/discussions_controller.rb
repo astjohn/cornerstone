@@ -17,18 +17,25 @@ module Cornerstone
       respond_with(@discussion)
     end
 
-    # GET /cornerstone/discussions/:category/:id
+    # GET /cornerstone/discussions/:category
     def category
       @category = Category.includes(:discussions => :posts).find(params[:category])
       @discussions = @category.discussions
       respond_with(@discussions, :template => "cornerstone/discussions/categorical_index")
     end
 
+    # GET /cornerstone/discussions/:category/:id
+    def show
+      @discussion = Discussion.includes(:posts => :user).find(params[:id])
+      @new_post = Post.new
+      @posts = @discussion.posts
+    end
+
     # POST /cornerstone/discussions/
     def create
       @discussion = Discussion.new(params[:discussion])
 
-      # assign user if he's signed in
+      # assign user if signed in
       if current_cornerstone_user
         @discussion.user = current_cornerstone_user
         @discussion.posts.first.user = current_cornerstone_user

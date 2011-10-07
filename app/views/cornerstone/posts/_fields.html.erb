@@ -1,0 +1,14 @@
+<% unless current_cornerstone_user %>
+  <div class="field">
+    <%= p.label :name %>
+    <%= p.text_field :name %>
+  </div>
+  <div class="field">
+    <%= p.label :email %>
+    <%= p.email_field :email %>
+  </div>
+<% end %>
+<div class="field">
+  <%= p.text_area :body %>
+</div>
+

@@ -15,21 +15,8 @@
     <%= f.text_field :subject %>
   </div>
 
-
   <%= f.fields_for :posts do |p| %>
-    <% unless current_cornerstone_user %>
-      <div class="field">
-        <%= p.label :name %>
-        <%= p.text_field :name %>
-      </div>
-      <div class="field">
-        <%= p.label :email %>
-        <%= p.email_field :email %>
-      </div>
-    <% end %>
-    <div class="field">
-      <%= p.text_area :body %>
-    </div>
+    <%= render :partial => 'cornerstone/posts/fields', :locals => {:p => p} %>
   <% end %>
 
   <div class="actions">
