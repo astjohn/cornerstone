@@ -65,5 +65,9 @@ describe Cornerstone::PostsController do
 
   end
 
+  pending "edit"
+  pending "UPDATE"
+  pending "destroy"
+
 end
 

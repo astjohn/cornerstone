@@ -8,7 +8,7 @@ Cornerstone::Engine.routes.draw do
   get "/discussions/:category" => "discussions#category", :as => "discussions_category"
   get "/discussions/:category/:id" => "discussions#show", :as => "discussion"
 
-  resources :categories
+  resources :categories, :except => :show
 
   root :to => "help#index"
 

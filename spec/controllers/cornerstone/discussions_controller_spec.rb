@@ -54,6 +54,9 @@ describe Cornerstone::DiscussionsController do
 
   end
 
+  pending "EDIT"
+
+
   describe "POST create" do
     context "with valid parameters" do
       it "exposes a newly created discussion as @discussion" do
@@ -118,6 +121,42 @@ describe Cornerstone::DiscussionsController do
     end
 
   end
+
+  describe "GET Category" do
+    it "assigns the given category as @category" do
+      Cornerstone::Category.stub_chain(:includes, :find).with("8") {mock_category}
+      get :category, :category => "8", :use_route => :cornerstone
+      assigns[:category].should == mock_category
+    end
+    it "assigns the given category's discussions as @discussions" do
+      Cornerstone::Category.stub_chain(:includes, :find).with("8") {mock_category}
+      mock_category.should_receive(:discussions) {[mock_discussion]}
+      get :category, :category => "8", :use_route => :cornerstone
+      assigns[:discussions].should == [mock_discussion]
+    end
+  end
+
+  pending "GET Show" do
+    it "assigns the discussion as @discussion" do
+      Cornerstone::Discussion.stub_chain(:includes, :find).with("8") {mock_discussion}
+      get :show, :id => "8"
+      assigns[:discussion].should == mock_discussion
+    end
+    it "assigns the discussion's posts as @posts" do
+      Cornerstone::Discussion.stub_chain(:includes, :find).with("8") {mock_discussion}
+      mock_post = mock_model(Cornerstone::Post).as_null_object
+      mock_discussion.should_receive(:posts) {[mock_post]}
+      get :show, :id => "8"
+      assigns[:posts].should == [mock_post]
+    end
+    it "creates a new post for the reply form" do
+      Cornerstone::Discussion.stub_chain(:includes, :find).with("8") {mock_discussion}
+      get :show, :id => "8"
+      assigns[:new_post].should be_a_new(Cornerstone::Post)
+    end
+  end
+  pending "UPDATE"
+  pending "DESTROY"
 
 end
 
