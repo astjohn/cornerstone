@@ -1,5 +1,7 @@
 module Cornerstone
   class CategoriesController < ApplicationController
+    authorize_cornerstone_user!
+
     respond_to :html
 
     def index

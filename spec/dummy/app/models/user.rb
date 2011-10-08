@@ -9,7 +9,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
-  acts_as_cornerstone_user :user_name => :name, :user_email => :email
+  acts_as_cornerstone_user :user_name => :name, :user_email => :email,
+                           :admin => Proc.new {self.admin?}
+
+
+  def self.admin?
+    true
+  end
+
+
 
 end
 

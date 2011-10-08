@@ -25,6 +25,7 @@ module Cornerstone
       end
     end
 
+    # TODO
     # PUT /cornerstone/discussions/:id/posts/:id
     def update
     end

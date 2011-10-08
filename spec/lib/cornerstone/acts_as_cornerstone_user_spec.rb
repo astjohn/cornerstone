@@ -46,6 +46,12 @@ describe Cornerstone::ActsAsCornerstoneUser do
 
   end
 
+  context "Instance Methods" do
+    pending "#cornerstone_name"
+    pending "#cornerstone_email"
+    pending "#cornerstone_admin?"
+  end
+
 
 end
 

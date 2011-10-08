@@ -1,5 +1,6 @@
 module Cornerstone
   class DiscussionsController < ApplicationController
+
     respond_to :html
 
     # GET /cornerstone/discussions/

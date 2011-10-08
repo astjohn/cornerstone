@@ -75,6 +75,9 @@ GEM
       json (>= 1.4.6)
     hike (1.2.1)
     i18n (0.6.0)
+    jquery-rails (1.0.14)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.6.1)
     json_pure (1.6.1)
     mail (2.3.0)
@@ -162,6 +165,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  jquery-rails
   pickle
   rspec-rails
   sqlite3
