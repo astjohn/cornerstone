@@ -46,12 +46,28 @@ module Cornerstone
       respond_with(@discussion.category, @discussion) do |format|
         if @discussion.save
           flash[:notice] = 'Discussion was successfully created.'
-          format.html {redirect_to discussion_path(@discussion.category, @discussion)}
+          format.html {redirect_to category_discussion_path(@discussion.category, @discussion)}
         else
           @categories = Category.discussions
           format.html {render :new}
         end
       end
+    end
+
+    # PUT /cornersone/discussions/:id
+    def update
+      @discussion = Discussion.includes(:posts => :user).find(params[:id])
+
+      respond_with(@discussion.category, @discussion) do |format|
+        if @discussion.update_attributes(params[:discussion])
+          flash[:notice] = "Discussion was successfully updated."
+          format.html {redirect_to category_discussion_path(@discussion.category, @discussion)}
+        else
+          @categories = Category.discussions
+          format.html {render :edit}
+        end
+      end
+
     end
 
     # Only administrator

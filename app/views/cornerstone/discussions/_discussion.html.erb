@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to discussion.subject, discussion_path(category, discussion),
+  <td><%= link_to discussion.subject, category_discussion_path(category, discussion),
                                       :title => discussion.subject %>
       by <%= discussion.author_name %>
   </td>

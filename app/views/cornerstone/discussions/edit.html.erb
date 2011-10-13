@@ -2,10 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @discussion %> |
+<%= link_to 'Show', [@category, @discussion] %> |
 <%= link_to 'Back', discussions_path %>
-
-<%= edit_discussion_path(@discussion) %>
-
-<%= discussion_path(@discussion) %>
 
