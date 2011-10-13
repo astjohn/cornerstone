@@ -1,6 +1,6 @@
 module Cornerstone
   class CategoriesController < ApplicationController
-    authorize_cornerstone_user!
+    authorize_cornerstone_admin!
 
     respond_to :html
 

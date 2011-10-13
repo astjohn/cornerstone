@@ -1,12 +1,43 @@
-<% unless current_cornerstone_user %>
-  <div class="field">
-    <%= p.label :name %>
-    <%= p.text_field :name %>
-  </div>
-  <div class="field">
-    <%= p.label :email %>
-    <%= p.email_field :email %>
-  </div>
+<% if p.object.new_record? %>
+  <% if current_cornerstone_user %>
+    <div class="field">
+      <%= p.label :name %>
+      <p><%= current_cornerstone_user.name %></p>
+    </div>
+    <div class="field">
+      <%= p.label :email %>
+      <p><%= current_cornerstone_user.email %></p>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </div>
+    <div class="field">
+      <%= p.label :email %>
+      <%= p.email_field :email %>
+    </div>
+  <% end %>
+<% else %>
+  <% if p.object.user.present? %>
+    <div class="field">
+      <%= p.label :name %>
+      <p><%= p.object.user.name %></p>
+    </div>
+    <div class="field">
+      <%= p.label :email %>
+      <p><%= p.object.user.email %></p>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </div>
+    <div class="field">
+      <%= p.label :email %>
+      <%= p.email_field :email %>
+    </div>
+  <% end %>
 <% end %>
 <div class="field">
   <%= p.text_area :body %>

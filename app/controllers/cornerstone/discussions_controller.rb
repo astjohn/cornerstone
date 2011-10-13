@@ -1,5 +1,6 @@
 module Cornerstone
   class DiscussionsController < ApplicationController
+    authorize_cornerstone_admin! :only => [:edit, :update]
 
     respond_to :html
 
@@ -51,6 +52,13 @@ module Cornerstone
           format.html {render :new}
         end
       end
+    end
+
+    # Only administrator
+    # GET /cornerstone/discussions/:id/edit
+    def edit
+      @discussion = Discussion.includes(:posts => :user).find(params[:id])
+      @categories = Category.discussions
     end
 
   end

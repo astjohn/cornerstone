@@ -10,7 +10,7 @@ module Cornerstone
     module ClassMethods
       # Returns true if user is authorized for controller action, otherwise
       # raise error
-      def authorize_cornerstone_user!(*args)
+      def authorize_cornerstone_admin!(*args)
         self.before_filter(*args) do |controller|
           raise Cornerstone::AccessDenied unless cornerstone_admin?
         end

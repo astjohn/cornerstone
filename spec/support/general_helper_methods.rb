@@ -4,3 +4,10 @@ def random_alphanumeric(size=16)
   s
 end
 
+def sign_in_admin
+  @admin = Factory(:user)
+  sign_in @admin
+  controller.stub(:current_cornerstone_user) {@admin}
+  @admin.stub(:cornerstone_admin?) {true}
+end
+

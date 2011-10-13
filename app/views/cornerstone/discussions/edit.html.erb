@@ -1,9 +1,11 @@
 <h1>Editing Discussion</h1>
 
-ADMIN ONLY???
-
 <%= render 'form' %>
 
 <%= link_to 'Show', @discussion %> |
 <%= link_to 'Back', discussions_path %>
+
+<%= edit_discussion_path(@discussion) %>
+
+<%= discussion_path(@discussion) %>
 

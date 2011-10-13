@@ -1,5 +1,7 @@
 module Cornerstone
   class ArticlesController < ApplicationController
+    authorize_cornerstone_admin!
+
     respond_to :html
 
     def index

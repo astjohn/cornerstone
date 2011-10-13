@@ -46,15 +46,41 @@ describe Cornerstone::DiscussionsController do
       get :new, :use_route => :cornerstone
     end
 
-    it "it exposes discussion categories for selection as @categories" do
-      Cornerstone::Category.should_receive(:discussions) {mock_category}
+    it "exposes discussion categories for selection as @categories" do
+      Cornerstone::Category.should_receive(:discussions) {[mock_category]}
       get :new, :use_route => :cornerstone
-      assigns(:categories).should equal(mock_category)
+      assigns(:categories).should eql([mock_category])
     end
 
   end
 
-  pending "EDIT"
+  describe "GET edit" do
+    context "with an administrator" do
+      before do
+        sign_in_admin
+      end
+      it "assigns the discussion as @discussion" do
+        Cornerstone::Discussion.stub_chain(:includes, :find) {mock_discussion}
+        get :edit, :id => "2", :use_route => :cornerstone
+        assigns(:discussion).should eql(mock_discussion)
+      end
+
+      it "exposes discussion categories for selection as @categories" do
+        Cornerstone::Discussion.stub_chain(:includes, :find) {mock_discussion}
+        Cornerstone::Category.should_receive(:discussions) {[mock_category]}
+        get :edit, :id => "2", :use_route => :cornerstone
+        assigns(:categories).should eql([mock_category])
+      end
+    end
+
+    context "with a normal user" do
+      it "raises the unauthorized error" do
+        lambda {
+          get :edit, :id => "2", :use_route => :cornerstone
+        }.should raise_error(Cornerstone::AccessDenied)
+      end
+    end
+  end
 
 
   describe "POST create" do

@@ -15,7 +15,7 @@
     <%= f.text_field :subject %>
   </div>
 
-  <%= f.fields_for :posts do |p| %>
+  <%= f.fields_for :posts, @discussion.posts.first do |p| %>
     <%= render :partial => 'cornerstone/posts/fields', :locals => {:p => p} %>
   <% end %>
 
