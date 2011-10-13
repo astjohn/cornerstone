@@ -35,5 +35,12 @@ end
 
 task :default => :test
 
+# Display routes
+task :routes => 'app:environment' do
+  Rails.application.reload_routes!
+  puts Cornerstone::Engine.routes.routes
+#  all_routes = Cornerstone::Engine.routes.routes
+end
+
 Bundler::GemHelper.install_tasks
 
