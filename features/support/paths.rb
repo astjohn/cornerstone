@@ -16,7 +16,7 @@ module NavigationHelpers
       engine_wrap(:new_discussion_path)
     when /the discussion page for '(.+)'/
       d = Cornerstone::Discussion.find_by_subject($1)
-      engine_wrap(:discussion_path, d.category, d)
+      engine_wrap(:category_discussion_path, d.category, d)
     when /the discussion category page for '(.+)'/
       c = Cornerstone::Category.find_by_name($1)
       engine_wrap(:discussions_category_path, c)

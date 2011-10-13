@@ -4,7 +4,8 @@ Feature: Manage Articles
   I want to be able to manage articles
 
   Scenario: Articles are listed with action buttons
-    Given an article exists with title: "How to do", body: "article body"
+    Given I am a logged in administrator
+    And an article exists with title: "How to do", body: "article body"
     When I go to "the articles page"
     Then an article should exist with title: "How to do"
     And I should see the "title" of the article
@@ -14,7 +15,8 @@ Feature: Manage Articles
     And I should see "Edit"
 
   Scenario: Create a new article successfully
-    Given a category exists with name: "FAQ", category_type: "Article"
+    Given I am a logged in administrator
+    And a category exists with name: "FAQ", category_type: "Article"
     And I am on "the new article page"
     When I fill in "Title" with "How to make widgets"
     And I fill in "Body" with "Here are the instructions on how to make widgets"
@@ -26,7 +28,8 @@ Feature: Manage Articles
     And I should see "Here are the instructions on how to make widgets"
 
   Scenario: Update an article successfully
-    Given an article exists with title: "How to do", body: "article body"
+    Given I am a logged in administrator
+    And an article exists with title: "How to do", body: "article body"
     And I am on "the articles page"
     When I follow "Edit"
     Then I should be on the edit article page for 'How to do'
@@ -39,7 +42,8 @@ Feature: Manage Articles
     And I should see "Article was successfully updated."
 
   Scenario: Delete article
-    Given a category "faq" exists with name: "FAQ", category_type: "Article"
+    Given I am a logged in administrator
+    And a category "faq" exists with name: "FAQ", category_type: "Article"
     And an article exists with title: "name 1", category: category "faq", body: "test"
     And an article exists with title: "name 2", category: category "faq", body: "test"
     And an article exists with title: "name 3", category: category "faq", body: "test"

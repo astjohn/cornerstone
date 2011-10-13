@@ -4,7 +4,8 @@ Feature: Manage Categories
   I want to be able to manage categories
 
   Scenario: Categories are listed with action buttons
-    Given the following categories exist:
+    Given I am a logged in administrator
+    And the following categories exist:
       |     name      | category_type | description                |
       | General Help  |   Discussion  | General help for our site. |
       | FAQs          |   Article     | Frequently asked questions |
@@ -18,7 +19,8 @@ Feature: Manage Categories
     And I should see "Edit"
 
   Scenario: Create a new category successfully
-    Given I am on "the new category page"
+    Given I am a logged in administrator
+    And I am on "the new category page"
     When I fill in "Name" with "name 1"
     And I select "Discussion" from "category_type"
     And I fill in "Description" with "some description"
@@ -28,7 +30,8 @@ Feature: Manage Categories
     And I should see "Discussion"
 
   Scenario: Update a category successfully
-    Given the following categories exist:
+    Given I am a logged in administrator
+    And the following categories exist:
       |     name      | category_type | description |
       | name 1        | Discussion    | description |
     And I am on "the categories page"
@@ -42,7 +45,8 @@ Feature: Manage Categories
     And I should see "Category was successfully updated."
 
   Scenario: Delete category
-    Given the following categories exist:
+    Given I am a logged in administrator
+    And the following categories exist:
       |     name      | category_type | description |
       | name 1        | Discussion    | description |
       | name 2        | Article       | description |

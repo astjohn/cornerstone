@@ -35,6 +35,12 @@ Given /I am a regular, logged in user/ do
   login_as Factory(:user, :name => "Tester")
 end
 
+Given /I am a logged in administrator/ do
+  @admin = Factory(:user)
+  @admin.stub!(:cornerstone_admin?) {true}
+  login_as @admin
+end
+
 # # To login for the next action as "A User"
 #  login_as "A User"
 #  get "/foo"
