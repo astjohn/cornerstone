@@ -22,23 +22,23 @@ module NavigationHelpers
       engine_wrap(:discussions_category_path, c)
 
     when /the categories page/
-      engine_wrap(:categories_path)
+      engine_wrap(:admin_categories_path)
     when /the new category page/
-      engine_wrap(:new_category_path)
+      engine_wrap(:new_admin_category_path)
     when /the edit category page for '(.+)'/
       c = Cornerstone::Category.find_by_name($1)
-      engine_wrap(:edit_category_path, c)
+      engine_wrap(:edit_admin_category_path, c)
 
     when /the articles page/
-      engine_wrap(:articles_path)
+      engine_wrap(:admin_articles_path)
     when /the new article page/
-      engine_wrap(:new_article_path)
+      engine_wrap(:new_admin_article_path)
     when /the article show page for '(.+)'/
       a = Cornerstone::Article.find_by_title($1)
-      engine_wrap(:article_path, a)
+      engine_wrap(:admin_article_path, a)
     when /the edit article page for '(.+)'/
       a = Cornerstone::Article.find_by_title($1)
-      engine_wrap(:edit_article_path, a)
+      engine_wrap(:edit_admin_article_path, a)
 
     # Pickle Paths - TODO: Does this work with isolated enigne paths???
     when /^#{capture_model}(?:'s)? page$/

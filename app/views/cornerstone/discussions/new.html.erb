@@ -1,6 +1,6 @@
 <h1>New Discussion</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'form', :locals => {:form_path => @discussion} %>
 
 <%= link_to 'Back', discussions_path %>
 

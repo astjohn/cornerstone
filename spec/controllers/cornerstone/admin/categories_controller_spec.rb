@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Cornerstone::CategoriesController do
+describe Cornerstone::Admin::CategoriesController do
 
   def mock_category(stubs={})
     @mock_category ||= mock_model(Cornerstone::Category, stubs).as_null_object
@@ -67,7 +67,7 @@ describe Cornerstone::CategoriesController do
         it "redirects to the category list" do
           Cornerstone::Category.stub!(:new) {mock_category(:save => true)}
           post :create, :category => {}, :use_route => :cornerstone
-          response.should redirect_to(categories_path)
+          response.should redirect_to(admin_categories_path)
         end
       end
 
@@ -143,7 +143,7 @@ describe Cornerstone::CategoriesController do
         it "redirects to the category list" do
           put :update, :id => "37", :category => {"these" => "params"},
                                     :use_route => :cornerstone
-          response.should redirect_to(categories_path)
+          response.should redirect_to(admin_categories_path)
         end
 
       end
@@ -153,7 +153,6 @@ describe Cornerstone::CategoriesController do
           Cornerstone::Category.stub(:find).with("37")
                                .and_return(mock_category(:update_attributes => false))
         end
-
         it "renders the edit page" do
           put :update, :id => "37", :category => {}, :use_route => :cornerstone
           response.should render_template :edit
@@ -183,13 +182,13 @@ describe Cornerstone::CategoriesController do
       it "redirects to the category list when destroyed" do
         Cornerstone::Category.stub(:find) {mock_category(:destroy => true)}
         delete :destroy, :id => "37", :use_route => :cornerstone
-        response.should redirect_to(categories_path)
+        response.should redirect_to(admin_categories_path)
       end
 
       it "redirects to the category list when not destroyed" do
         Cornerstone::Category.stub(:find) {mock_category(:destroy => false)}
         delete :destroy, :id => "37", :use_route => :cornerstone
-        response.should redirect_to(categories_path)
+        response.should redirect_to(admin_categories_path)
       end
     end
     context "with a normal user" do

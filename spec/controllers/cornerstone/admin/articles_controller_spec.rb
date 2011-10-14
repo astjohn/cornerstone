@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Cornerstone::ArticlesController do
+describe Cornerstone::Admin::ArticlesController do
 
   def mock_category(stubs={})
     @mock_category ||= mock_model(Cornerstone::Category, stubs).as_null_object
@@ -93,7 +93,7 @@ describe Cornerstone::ArticlesController do
           Cornerstone::Article.stub!(:new) {mock_article(:save => true,
                                                                :category => mock_category)}
           post :create, :article => {}, :use_route => :cornerstone
-          response.should redirect_to(mock_article)
+          response.should redirect_to(admin_article_path(mock_article))
         end
 
       end
@@ -183,7 +183,7 @@ describe Cornerstone::ArticlesController do
         it "redirects to the article" do
           put :update, :id => "37", :article => {"these" => "params"},
                                     :use_route => :cornerstone
-          response.should redirect_to(mock_article)
+          response.should redirect_to(admin_article_path(mock_article))
         end
 
       end
@@ -228,13 +228,13 @@ describe Cornerstone::ArticlesController do
       it "redirects to the article list when destroyed" do
         Cornerstone::Article.stub(:find) {mock_article(:destroy => true)}
         delete :destroy, :id => "37", :use_route => :cornerstone
-        response.should redirect_to(articles_path)
+        response.should redirect_to(admin_articles_path)
       end
 
       it "redirects to the article list when not destroyed" do
         Cornerstone::Article.stub(:find) {mock_article(:destroy => false)}
         delete :destroy, :id => "37", :use_route => :cornerstone
-        response.should redirect_to(articles_path)
+        response.should redirect_to(admin_articles_path)
       end
     end
     context "with a normal user" do

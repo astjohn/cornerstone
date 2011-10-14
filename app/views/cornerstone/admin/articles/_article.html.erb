@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to article.title, [:admin, article] %></td>
+  <td><%= l(article.updated_at) %></td>
+  <td><%= link_to "Edit", edit_admin_article_path(article) %></td>
+  <td><%= link_to 'Destroy', [:admin, article], :confirm => 'Are you sure?',
+                                                          :method => :delete,
+                                                          :title => "Destroy" %>
+</tr>
+

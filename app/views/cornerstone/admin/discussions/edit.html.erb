@@ -1,6 +1,6 @@
 <h1>Editing Discussion</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'cornerstone/discussions/form', :locals => {:form_path => [:admin, @discussion]} %>
 
 <%= link_to 'Show', [@category, @discussion] %> |
 <%= link_to 'Back', discussions_path %>

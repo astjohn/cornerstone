@@ -1,6 +1,5 @@
 module Cornerstone
   class DiscussionsController < ApplicationController
-    authorize_cornerstone_admin! :only => [:edit, :update]
 
     respond_to :html
 
@@ -52,29 +51,6 @@ module Cornerstone
           format.html {render :new}
         end
       end
-    end
-
-    # PUT /cornersone/discussions/:id
-    def update
-      @discussion = Discussion.includes(:posts => :user).find(params[:id])
-
-      respond_with(@discussion.category, @discussion) do |format|
-        if @discussion.update_attributes(params[:discussion])
-          flash[:notice] = "Discussion was successfully updated."
-          format.html {redirect_to category_discussion_path(@discussion.category, @discussion)}
-        else
-          @categories = Category.discussions
-          format.html {render :edit}
-        end
-      end
-
-    end
-
-    # Only administrator
-    # GET /cornerstone/discussions/:id/edit
-    def edit
-      @discussion = Discussion.includes(:posts => :user).find(params[:id])
-      @categories = Category.discussions
     end
 
   end

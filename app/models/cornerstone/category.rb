@@ -5,8 +5,8 @@ module Cornerstone
     TYPES = ["Discussion", "Article"]
 
     # == ASSOCIATIONS == #
-    has_many :discussions
-    has_many :articles
+    has_many :discussions, :dependent => :destroy
+    has_many :articles, :dependent => :destroy
 
     # == ACCESSIBILITY == #
     attr_accessible :name, :category_type, :description

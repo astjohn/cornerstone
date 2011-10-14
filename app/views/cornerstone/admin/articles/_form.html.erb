@@ -1,4 +1,4 @@
-<%= form_for(@article) do |f| %>
+<%= form_for([:admin, @article]) do |f| %>
   <%= render :partial => "cornerstone/shared/errors", :locals => {:rails_model => @article} %>
 
   <div class="field">

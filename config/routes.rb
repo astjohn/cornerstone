@@ -1,6 +1,5 @@
 Cornerstone::Engine.routes.draw do
 
-  resources :articles
 
 
   resources :discussions, :except => [:show] do
@@ -9,12 +8,17 @@ Cornerstone::Engine.routes.draw do
 
   # Custom routes to handle show for discussions and discussion categories
   get "/discussions/:category/:id" => "discussions#show", :as => "category_discussion"
-#  get "/discussions/:category/:id/edit" => "discussions#edit", :as => "edit_category_discussion"
   get "/discussions/:category" => "discussions#category", :as => "discussions_category"
 
-  resources :categories, :except => :show
 
   root :to => "help#index"
+
+  namespace :admin do
+    root :to => "admin#dashboard"
+    resources :categories, :except => :show
+    resources :articles
+    resources :discussions, :only => [:edit, :update]
+  end
 
 end
 

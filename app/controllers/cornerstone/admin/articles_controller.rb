@@ -1,27 +1,26 @@
 module Cornerstone
-  class ArticlesController < ApplicationController
-    authorize_cornerstone_admin!
+  class Admin::ArticlesController < Admin::ApplicationController
 
     respond_to :html
 
     def index
       @articles = Article.all
-      respond_with(@articles)
+      respond_with(:admin, @articles)
     end
 
     def show
       @article = Article.find(params[:id])
-      respond_with(@article)
+      respond_with(:admin, @article)
     end
 
-    # GET /cornerstone/articles/new
+    # GET /cornerstone/admin/articles/new
     def new
       @article = Article.new
       @categories = Category.articles
-      respond_with(@articles)
+      respond_with(:admin, @articles)
     end
 
-    # POST /cornerstone/articles/
+    # POST /cornerstone/admin/articles/
     def create
       @article = Article.new(params[:article])
       if @article.save
@@ -29,17 +28,17 @@ module Cornerstone
       else
         @categories = Category.articles
       end
-      respond_with(@article)
+      respond_with(:admin, @article)
     end
 
-    # GET /cornerstone/articles/:id/edit
+    # GET /cornerstone/admin/articles/:id/edit
     def edit
       @article = Article.find(params[:id])
       @categories = Category.articles
-      respond_with(@article)
+      respond_with(:admin, @article)
     end
 
-    # PUT /cornerstone/articles/:id
+    # PUT /cornerstone/admin/articles/:id
     def update
       @article = Article.find(params[:id])
       if @article.update_attributes(params[:article])
@@ -47,14 +46,14 @@ module Cornerstone
       else
         @categories = Category.articles
       end
-      respond_with(@article)
+      respond_with(:admin, @article)
     end
 
-    # DELETE /cornerstone/articles/:id
+    # DELETE /cornerstone/admin/articles/:id
     def destroy
       @article = Article.find(params[:id])
       flash[:notice] = 'Article was successfully destroyed.' if @article.destroy
-      respond_with(@article, :location => articles_path)
+      respond_with(:admin, @article, :location => admin_articles_path)
     end
 
   end
