@@ -19,6 +19,12 @@
     <%= render :partial => 'cornerstone/posts/fields', :locals => {:p => p} %>
   <% end %>
 
+  <% if cornerstone_admin? %>
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.select :status, Cornerstone::Discussion::STATUS %> 
+    </div> 
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

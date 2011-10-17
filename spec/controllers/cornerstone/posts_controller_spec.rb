@@ -31,13 +31,32 @@ describe Cornerstone::PostsController do
       post :create, :discussion_id => @discussion.id, :post => attrs, :use_route => :cornerstone
       assigns[:post].user.should == @user
     end
-
+    
     context "with valid parameters" do
+      before do
+        Cornerstone::Post.any_instance.stub(:save) {true}      
+      end
       it "redirects to the discussion" do
-        Cornerstone::Post.any_instance.stub(:save) {true}
         attrs = Factory.attributes_for(:post)
         post :create, :discussion_id => @discussion.id, :post => attrs, :use_route => :cornerstone
         response.should redirect_to(discussion_path(@discussion.category, @discussion))
+      end
+
+      context "discussion status" do
+        it "is changed to closed if params dictate" do
+          attrs = Factory.attributes_for(:post)
+          post :create, :discussion_id => @discussion.id, :post => attrs, 
+                        :comment_close => true, :use_route => :cornerstone
+          @discussion.reload.status.should == Cornerstone::Discussion::STATUS.last
+        end
+        it "is changed to open if discussion was previously closed" do
+          @discussion.status = Cornerstone::Discussion::STATUS.last
+          @discussion.save!
+          attrs = Factory.attributes_for(:post)
+          post :create, :discussion_id => @discussion.id, :post => attrs, 
+                        :use_route => :cornerstone
+          @discussion.reload.status.should == Cornerstone::Discussion::STATUS.first        
+        end
       end
     end
 

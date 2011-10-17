@@ -2,6 +2,18 @@
   <%= render :partial => 'cornerstone/shared/errors',
              :locals => {:rails_model => post} %>
   <%= render :partial => "cornerstone/posts/fields", :locals => {:p => f} %>
-  <%= f.submit "Comment" %>
+  
+  
+  <% unless discussion.closed? %>
+    <%= f.submit "Comment" %><br />
+    
+    <% if discussion.created_by?(current_cornerstone_user) %>
+      <%= f.submit "Comment and Close", :name => "comment_close" %>
+    <% end %>
+    
+  <% else %>
+    <%= f.submit "Comment and Re-open" %><br />  
+  <% end %>
+
 <% end %>
 

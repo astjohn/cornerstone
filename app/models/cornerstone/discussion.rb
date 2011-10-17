@@ -39,6 +39,18 @@ module Cornerstone
     def author_name
       self.posts.first.author_name
     end
+    
+    # returns true if discussion is 'closed'
+    def closed?
+      self.status == Cornerstone::Discussion::STATUS.last
+    end
+    
+    # returns true if discussion was created by given user or if given user is an admin
+    def created_by?(check_user)
+      return false unless check_user.present?
+      return true if check_user.cornerstone_admin?      
+      self.user && self.user == check_user
+    end
 
     #######
     private

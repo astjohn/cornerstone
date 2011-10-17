@@ -1,7 +1,5 @@
 TODO:
 
-* Add status to discussion for admins
-* Ability for user to close/re-open discussion
 * Observers for emailing participants and admins
 -- Pehaps use config to store list of admins to email on new discussion.  Then use participants list.
 * Edit/Update posts

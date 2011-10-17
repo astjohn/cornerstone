@@ -142,10 +142,51 @@ describe Cornerstone::Discussion do
   # == INSTANCE METHODS == #
   context "Instance Methods:" do
     describe "#author_name" do
-      it "return's the first post's author name" do
+      it "returns the first post's author name" do
         @user = Factory(:user, :name => "Joe Jingleheimershmeidt")
         @discussion = Factory(:discussion_w_user, :user => @user)
         @discussion.author_name.should == "Joe Jingleheimershmeidt"
+      end
+    end
+    describe "#closed?" do
+      it "returns true if the status is the last in the list" do
+        @discussion = Factory(:discussion_no_user, :status => Cornerstone::Discussion::STATUS.last)
+        @discussion.closed?.should == true
+      end
+      it "returns false if the status is not the last in the list" do
+        @discussion = Factory(:discussion_no_user, :status => Cornerstone::Discussion::STATUS.first)
+        @discussion.closed?.should == false      
+      end
+    end
+    describe "#created_by" do
+      before do
+        @user = Factory(:user)
+      end
+      it "returns true if the user is a cornerstone admin" do
+        @user.stub(:cornerstone_admin?) {true}
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @discussion.created_by?(@user).should == true
+      end
+      it "returns nil if there is no user" do
+        @discussion = Factory(:discussion_no_user, :user => nil)
+        @user.stub(:cornerstone_admin?) {false}
+        @discussion.created_by?(@user).should == nil
+      end
+      it "returns false if given nil" do
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @discussion.created_by?(nil).should == false
+      end
+      it "returns true if the user created the discussion" do
+        @user.stub(:cornerstone_admin?) {false}
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @discussion.created_by?(@user).should == true
+      end
+      it "returns false if the user did not create the discussion" do
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @user2 = Factory(:user)
+        @user.stub(:cornerstone_admin?) {false}
+        @user2.stub(:cornerstone_admin?) {false}
+        @discussion.created_by?(@user2).should == false
       end
     end
 

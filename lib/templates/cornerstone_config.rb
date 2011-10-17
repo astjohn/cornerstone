@@ -17,6 +17,7 @@ Cornerstone::Config.setup do |config|
   # == Discussion Statuses
   # An array of strings which specify the status options for a discussion.
   # The first status option becomes the default value used in the database.
+  # The last status option becomes the default value when a discussion is 'closed.'
   config.discussion_statuses = ["Open", "Resolved"]
 
 end
