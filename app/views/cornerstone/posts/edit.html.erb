@@ -1,0 +1,9 @@
+<h1>Editing Post for <%= @discussion.subject %></h1>
+
+<%= form_for([@discussion, @post]) do |f| %>
+  <%= render :partial => 'cornerstone/shared/errors',
+             :locals => {:rails_model => @post} %>
+  <%= render :partial => "cornerstone/posts/fields", :locals => {:p => f} %>
+
+  <%= f.submit "Update" %>
+<% end %>

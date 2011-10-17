@@ -2,7 +2,7 @@ module Cornerstone
   class PostsController < ApplicationController
     respond_to :html
 
-    # POST /cornerstone/discussions/:id/posts
+    # POST /cornerstone/discussions/:discussion_id/posts
     def create
       @discussion = Discussion.includes(:posts => :user).find(params[:discussion_id])
       existing_posts = @discussion.posts.dup
@@ -34,10 +34,17 @@ module Cornerstone
         end
       end
     end
+    
+    # GET /cornerstone/discussions/:discussion_id/posts/:id/edit
+    def edit
+      @post = Post.includes(:user, :discussion).find(params[:id])
+      @discussion = @post.discussion
+      respond_with(@discussion, @post)
+    end
 
-    # TODO
-    # PUT /cornerstone/discussions/:id/posts/:id
+    # PUT /cornerstone/discussions/:discussion_id/posts/:id
     def update
+      @post = Post.includes(:user, :discussion).find(params[:id])
     end
 
   end

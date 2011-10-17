@@ -5,6 +5,10 @@ describe Cornerstone::PostsController do
   def mock_discussion(stubs={})
     @mock_discussion ||= mock_model(Cornerstone::Discussion, stubs).as_null_object
   end
+  
+  def mock_post(stubs={})
+    @mock_post ||= mock_model(Cornerstone::Post, stubs).as_null_object
+  end
 
   describe "POST create" do
     before do
@@ -39,7 +43,7 @@ describe Cornerstone::PostsController do
       it "redirects to the discussion" do
         attrs = Factory.attributes_for(:post)
         post :create, :discussion_id => @discussion.id, :post => attrs, :use_route => :cornerstone
-        response.should redirect_to(discussion_path(@discussion.category, @discussion))
+        response.should redirect_to(category_discussion_path(@discussion.category, @discussion))
       end
 
       context "discussion status" do
@@ -84,7 +88,31 @@ describe Cornerstone::PostsController do
 
   end
 
-  pending "edit"
+  describe "GET edit" do
+    before do
+      @discussion = Factory(:discussion)
+    end
+    
+    it "assigns the post as @post" do
+      Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      assigns[:post].should == mock_post
+    end
+    
+    it "assigns the post's discussion as @discussion" do
+      Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+      mock_post.should_receive(:discussion) {mock_discussion}
+      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      assigns[:discussion].should == mock_discussion
+    end
+    
+    it "should render the edit template" do
+      Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      response.should render_template :edit    
+    end
+  
+  end
   pending "UPDATE"
   pending "destroy"
 

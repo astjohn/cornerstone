@@ -1,4 +1,11 @@
 <div class="post">
+  <% if post.created_by?(current_cornerstone_user) %>
+    <div class="actions">
+      <%= link_to "EDIT", edit_discussion_post_path(discussion, post) %> | 
+      <%= link_to "REMOVE", [discussion, post], :method => :delete,
+                                                :confirm => 'Are you sure?' %>
+    </div>
+  <% end %>
   <div class="author">
     <span class="author_name"><%= post.author_name %></span>
     <p class="date"><%= l(post.created_at) %></p>
