@@ -89,31 +89,91 @@ describe Cornerstone::PostsController do
   end
 
   describe "GET edit" do
-    before do
-      @discussion = Factory(:discussion)
-    end
     
     it "assigns the post as @post" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
-      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       assigns[:post].should == mock_post
     end
     
     it "assigns the post's discussion as @discussion" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       mock_post.should_receive(:discussion) {mock_discussion}
-      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       assigns[:discussion].should == mock_discussion
     end
     
     it "should render the edit template" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
-      get :edit, :discussion_id => @discussion.id, :id => "8", :use_route => :cornerstone
+      get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       response.should render_template :edit    
     end
-  
+
+    it "raises Cornerstone::AccessDenied if the user did not create the post" do
+      user = Factory(:user)
+      sign_in user
+      user2 = Factory(:user)
+      post = Factory(:post_w_user, :user => user2)
+      
+      lambda {
+        get :edit, :discussion_id => "2", :id => post.id, :use_route => :cornerstone
+      }.should raise_error(Cornerstone::AccessDenied)
+    end  
   end
-  pending "UPDATE"
+  
+  describe "PUT update" do
+    it "assigns the post as @post" do
+      Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+      put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
+      assigns[:post].should == mock_post   
+    end
+    
+    it "assigns the post's discussion as @discussion" do
+      Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+      mock_post.should_receive(:discussion) {mock_discussion}
+      put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
+      assigns[:discussion].should == mock_discussion       
+    end
+    
+    it "raises Cornerstone::AccessDenied if the user did not create the post" do
+      user = Factory(:user)
+      sign_in user
+      user2 = Factory(:user)
+      post = Factory(:post_w_user, :user => user2)
+      
+      lambda {
+        put :update, :discussion_id => "2", :id => post.id, :post => {}, 
+                     :use_route => :cornerstone
+      }.should raise_error(Cornerstone::AccessDenied)
+    end
+    
+    context "with valid parameters" do
+      it "updates the post with the params" do
+        Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+        mock_post.should_receive(:update_attributes).with("these" => "params") {true}
+        mock_post.stub(:discussion) {mock_discussion}
+        put :update, :discussion_id => "2", :id => "8", :post => {"these" => "params"}, 
+                                                        :use_route => :cornerstone
+      end
+      it "redirects to the discussion" do
+        Cornerstone::Post.any_instance.stub(:update_attributes) {true}
+        Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+        mock_post.stub(:discussion) {mock_discussion}
+        put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
+        response.should redirect_to category_discussion_path(mock_discussion.category, mock_discussion)
+      end
+    end
+    context "with in-valid parameters" do
+      it "renders the edit page" do
+        Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
+        mock_post.should_receive(:update_attributes) {false}
+        mock_post.stub(:discussion) {mock_discussion}
+        put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
+        response.should render_template :edit
+      end
+    end
+  end
+  
   pending "destroy"
 
 end

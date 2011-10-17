@@ -38,6 +38,7 @@ module Cornerstone
     # GET /cornerstone/discussions/:discussion_id/posts/:id/edit
     def edit
       @post = Post.includes(:user, :discussion).find(params[:id])
+      raise Cornerstone::AccessDenied unless @post.created_by?(current_cornerstone_user)
       @discussion = @post.discussion
       respond_with(@discussion, @post)
     end
@@ -45,6 +46,10 @@ module Cornerstone
     # PUT /cornerstone/discussions/:discussion_id/posts/:id
     def update
       @post = Post.includes(:user, :discussion).find(params[:id])
+      raise Cornerstone::AccessDenied unless @post.created_by?(current_cornerstone_user)
+      @discussion = @post.discussion
+      flash[:notice] = "Post was successfully updated." if @post.update_attributes(params[:post])
+      respond_with(@discussion, @post, :location => category_discussion_path(@discussion.category, @discussion))
     end
 
   end
