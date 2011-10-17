@@ -170,6 +170,40 @@ describe Cornerstone::Post do
         @post.author_email.should == "alice@wundersmut.com"
       end
     end
+    
+    describe "#created_by" do
+      before do
+        @user = Factory(:user)
+      end
+      it "returns true if the user is a cornerstone admin" do
+        @user.stub(:cornerstone_admin?) {true}
+        @post = Factory(:post_w_user, :user => @user)
+        @post.created_by?(@user).should == true
+      end
+      it "returns nil if there is no user" do
+        @post = Factory(:post_no_user, :user => nil)
+        @user.stub(:cornerstone_admin?) {false}
+        @post.created_by?(@user).should == nil
+      end
+      it "returns false if given nil" do
+        @post = Factory(:post_w_user, :user => @user)
+        @post.created_by?(nil).should == false
+      end
+      it "returns true if the user created the post" do
+        @user.stub(:cornerstone_admin?) {false}
+        @post = Factory(:post_w_user, :user => @user)
+        @post.created_by?(@user).should == true
+      end
+      it "returns false if the user did not create the post" do
+        @post = Factory(:post_w_user, :user => @user)
+        @user2 = Factory(:user)
+        @user.stub(:cornerstone_admin?) {false}
+        @user2.stub(:cornerstone_admin?) {false}
+        @post.created_by?(@user2).should == false
+      end
+    end
+    
+    
   end
 
 end

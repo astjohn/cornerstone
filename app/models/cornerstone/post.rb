@@ -52,6 +52,13 @@ module Cornerstone
       anonymous_or_user_attr(:cornerstone_email)
     end
 
+    # returns true if it was created by given user or if given user is an admin
+    def created_by?(check_user)
+      return false unless check_user.present?
+      return true if check_user.cornerstone_admin?      
+      self.user && self.user == check_user
+    end
+    
     #######
     private
     #######

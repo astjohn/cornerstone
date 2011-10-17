@@ -45,7 +45,7 @@ module Cornerstone
       self.status == Cornerstone::Discussion::STATUS.last
     end
     
-    # returns true if discussion was created by given user or if given user is an admin
+    # returns true if it was created by given user or if given user is an admin
     def created_by?(check_user)
       return false unless check_user.present?
       return true if check_user.cornerstone_admin?      
