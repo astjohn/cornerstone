@@ -196,7 +196,17 @@ describe Cornerstone::PostsController do
       delete :destroy, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       response.should redirect_to category_discussion_path(mock_discussion.category, mock_discussion)
     end
-    
+
+    it "raises Cornerstone::AccessDenied if the user did not create the post" do
+      user = Factory(:user)
+      sign_in user
+      user2 = Factory(:user)
+      post = Factory(:post_w_user, :user => user2)
+      
+      lambda {
+        delete :destroy, :discussion_id => "2", :id => post.id, :use_route => :cornerstone
+      }.should raise_error(Cornerstone::AccessDenied)
+    end    
   end
 
 end
