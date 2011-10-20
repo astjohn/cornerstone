@@ -23,9 +23,6 @@ describe Cornerstone::CornerstoneMailer do
                                                          post.author_email, post, discussion) }
 
     it "renders the headers" do
-      # guess the mailer strips out the names here?  TODO: check live
-      # "#{discussion.posts.first.author_name} <#{discussion.posts.first.author_email}>, " \
-      #         "#{post2.author_name} <#{post2.author_email}>"
       mailto = [post.author_email]
 
       subject = "Cornerstone: New reply for - #{discussion.subject}"
