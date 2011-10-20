@@ -155,7 +155,7 @@ describe Cornerstone::Discussion do
       end
       it "returns false if the status is not the last in the list" do
         @discussion = Factory(:discussion_no_user, :status => Cornerstone::Discussion::STATUS.first)
-        @discussion.closed?.should == false      
+        @discussion.closed?.should == false
       end
     end
     describe "#created_by" do
@@ -190,7 +190,54 @@ describe Cornerstone::Discussion do
       end
     end
 
+    describe "#participants" do
+      before do
+        @user = Factory(:user)
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @post2 = Factory(:post, :discussion => @discussion,
+                               :name => "Jim",
+                               :email => "jim@bob.com")
+      end
+
+      it "returns an array of participants from all of the posts" do
+        result = [[@user.name, @user.email],
+                  [@post2.name, @post2.email]]
+        @discussion.participants.should == result
+      end
+
+      it "does not include any duplicates" do
+        post3 = Factory(:post, :discussion => @discussion,
+                               :name => "Jim",
+                               :email => "jim@bob.com")
+        post4 = Factory(:post, :discussion => @discussion, :user => @user)
+        result = [[@user.name, @user.email],
+                  [@post2.name, @post2.email]]
+        @discussion.participants.should == result
+      end
+
+      it "does not include 'exclude_email' when given" do
+        @discussion.participants("jim@bob.com").should == [[@user.name, @user.email]]
+      end
+    end
+
+    describe "#participant_email_list" do
+      before do
+        @user = Factory(:user)
+        @discussion = Factory(:discussion_w_user, :user => @user)
+        @post2 = Factory(:post, :discussion => @discussion,
+                               :name => "Jim",
+                               :email => "jim@bob.com")
+      end
+      it "returns a string of names and email addresses suitable for the mailer" do
+        result = "#{@user.name} <#{@user.email}>, #{@post2.name} <#{@post2.email}>"
+        @discussion.participants_email_list.should == result
+      end
+      it "does not include 'exclude_email' when given" do
+        result = "#{@user.name} <#{@user.email}>"
+        @discussion.participants_email_list("jim@bob.com").should == result
+      end
+    end
+
   end
 
 end
-

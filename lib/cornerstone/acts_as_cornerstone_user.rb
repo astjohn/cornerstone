@@ -66,7 +66,7 @@ module Cornerstone
         case
         when self.cornerstone_admin.is_a?(TrueClass)
           true
-        when self.cornerstone_admin.is_a?(Proc)
+        when self.cornerstone_admin.respond_to?(:call)
           self.cornerstone_admin.call
         else
           false
@@ -77,4 +77,3 @@ module Cornerstone
   end
 
 end
-

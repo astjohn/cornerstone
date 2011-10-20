@@ -19,5 +19,12 @@ Cornerstone::Config.setup do |config|
   # The first status option becomes the default value used in the database.
   config.discussion_statuses = ["Open", "Resolved"]
 
-end
+  # == Mailer From Address
+  # The default 'from' email address for the mailer to use.
+  config.mailer_from = "no-reply@cornerstone.com"
 
+  # == Administrators emails
+  # An array of strings which specify which users to email when a new discussion is created.
+  config.admin_emails = ["admins@cornerstone.com"]
+
+end

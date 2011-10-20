@@ -1,0 +1,7 @@
+Hi <%= @name %>,
+
+<p>There is a new reply for the discussion: <%= link_to @discussion.subject, category_discussion_path(@discussion.category, @discussion) %>.</p>
+
+<p><%= @post.author_name %> says:</p>
+
+<p><%= @post.body %></p>

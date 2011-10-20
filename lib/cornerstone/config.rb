@@ -20,8 +20,14 @@ module Cornerstone
     mattr_accessor :discussion_statuses
     @@discussion_statuses = ["Open", "Resolved"]
 
+    # Mailer 'from' address
+    mattr_accessor :mailer_from
+    @@mailer_from = "no-reply@cornerstone.com"
+
+    # List of admin emails
+    mattr_accessor :admin_emails
+    @@admin_emails = []
 
   end
 
 end
-

@@ -5,7 +5,7 @@ describe Cornerstone::PostsController do
   def mock_discussion(stubs={})
     @mock_discussion ||= mock_model(Cornerstone::Discussion, stubs).as_null_object
   end
-  
+
   def mock_post(stubs={})
     @mock_post ||= mock_model(Cornerstone::Post, stubs).as_null_object
   end
@@ -35,10 +35,10 @@ describe Cornerstone::PostsController do
       post :create, :discussion_id => @discussion.id, :post => attrs, :use_route => :cornerstone
       assigns[:post].user.should == @user
     end
-    
+
     context "with valid parameters" do
       before do
-        Cornerstone::Post.any_instance.stub(:save) {true}      
+        Cornerstone::Post.any_instance.stub(:save) {true}
       end
       it "redirects to the discussion" do
         attrs = Factory.attributes_for(:post)
@@ -49,7 +49,7 @@ describe Cornerstone::PostsController do
       context "discussion status" do
         it "is changed to closed if params dictate" do
           attrs = Factory.attributes_for(:post)
-          post :create, :discussion_id => @discussion.id, :post => attrs, 
+          post :create, :discussion_id => @discussion.id, :post => attrs,
                         :comment_close => true, :use_route => :cornerstone
           @discussion.reload.status.should == Cornerstone::Discussion::STATUS.last
         end
@@ -57,9 +57,9 @@ describe Cornerstone::PostsController do
           @discussion.status = Cornerstone::Discussion::STATUS.last
           @discussion.save!
           attrs = Factory.attributes_for(:post)
-          post :create, :discussion_id => @discussion.id, :post => attrs, 
+          post :create, :discussion_id => @discussion.id, :post => attrs,
                         :use_route => :cornerstone
-          @discussion.reload.status.should == Cornerstone::Discussion::STATUS.first        
+          @discussion.reload.status.should == Cornerstone::Discussion::STATUS.first
         end
       end
     end
@@ -89,24 +89,24 @@ describe Cornerstone::PostsController do
   end
 
   describe "GET edit" do
-    
+
     it "assigns the post as @post" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       assigns[:post].should == mock_post
     end
-    
+
     it "assigns the post's discussion as @discussion" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       mock_post.should_receive(:discussion) {mock_discussion}
       get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
       assigns[:discussion].should == mock_discussion
     end
-    
+
     it "should render the edit template" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       get :edit, :discussion_id => "2", :id => "8", :use_route => :cornerstone
-      response.should render_template :edit    
+      response.should render_template :edit
     end
 
     it "raises Cornerstone::AccessDenied if the user did not create the post" do
@@ -114,45 +114,45 @@ describe Cornerstone::PostsController do
       sign_in user
       user2 = Factory(:user)
       post = Factory(:post_w_user, :user => user2)
-      
+
       lambda {
         get :edit, :discussion_id => "2", :id => post.id, :use_route => :cornerstone
       }.should raise_error(Cornerstone::AccessDenied)
-    end  
+    end
   end
-  
+
   describe "PUT update" do
     it "assigns the post as @post" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
-      assigns[:post].should == mock_post   
+      assigns[:post].should == mock_post
     end
-    
+
     it "assigns the post's discussion as @discussion" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       mock_post.should_receive(:discussion) {mock_discussion}
       put :update, :discussion_id => "2", :id => "8", :post => {}, :use_route => :cornerstone
-      assigns[:discussion].should == mock_discussion       
+      assigns[:discussion].should == mock_discussion
     end
-    
+
     it "raises Cornerstone::AccessDenied if the user did not create the post" do
       user = Factory(:user)
       sign_in user
       user2 = Factory(:user)
       post = Factory(:post_w_user, :user => user2)
-      
+
       lambda {
-        put :update, :discussion_id => "2", :id => post.id, :post => {}, 
+        put :update, :discussion_id => "2", :id => post.id, :post => {},
                      :use_route => :cornerstone
       }.should raise_error(Cornerstone::AccessDenied)
     end
-    
+
     context "with valid parameters" do
       it "updates the post with the params" do
         Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
         mock_post.should_receive(:update_attributes).with("these" => "params") {true}
         mock_post.stub(:discussion) {mock_discussion}
-        put :update, :discussion_id => "2", :id => "8", :post => {"these" => "params"}, 
+        put :update, :discussion_id => "2", :id => "8", :post => {"these" => "params"},
                                                         :use_route => :cornerstone
       end
       it "redirects to the discussion" do
@@ -174,22 +174,22 @@ describe Cornerstone::PostsController do
 #      end
     end
   end
-  
+
   describe "DELETE destroy" do
     it "assigns the post as @post" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       mock_post.stub(:discussion) {mock_discussion}
       delete :destroy, :discussion_id => "2", :id => "8", :use_route => :cornerstone
-      assigns[:post].should == mock_post   
+      assigns[:post].should == mock_post
     end
-    
+
     it "assigns the post's discussion as @discussion" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post}
       mock_post.should_receive(:discussion) {mock_discussion}
       delete :destroy, :discussion_id => "2", :id => "8", :use_route => :cornerstone
-      assigns[:discussion].should == mock_discussion       
+      assigns[:discussion].should == mock_discussion
     end
-    
+
     it "redirects to the discussion" do
       Cornerstone::Post.stub_chain(:includes, :find).with("8") {mock_post(:destroy => true)}
       mock_post.stub(:discussion) {mock_discussion}
@@ -202,12 +202,11 @@ describe Cornerstone::PostsController do
       sign_in user
       user2 = Factory(:user)
       post = Factory(:post_w_user, :user => user2)
-      
+
       lambda {
         delete :destroy, :discussion_id => "2", :id => post.id, :use_route => :cornerstone
       }.should raise_error(Cornerstone::AccessDenied)
-    end    
+    end
   end
 
 end
-

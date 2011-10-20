@@ -1,0 +1,14 @@
+Dear Admins,
+
+<p>A new discussion has been created.</p>
+
+<p>
+Name: <%= @post.author_name %><br/>
+Email: <%= @post.author_email %><br/>
+Subject: <%= @discussion.subject %><br/>
+Body: <%= @post.body %><br/>
+</p>
+
+<P>
+<%= url_for category_discussion_path(@discussion.category, @discussion) %>
+</p>

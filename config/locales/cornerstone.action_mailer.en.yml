@@ -1,0 +1,7 @@
+en:
+  cornerstone:
+    cornerstone_mailer:
+      new_discussion:
+        subject: "Cornerstone: A new discussion has been created."
+      new_post:
+        subject: "Cornerstone: New reply for - %{topic}"

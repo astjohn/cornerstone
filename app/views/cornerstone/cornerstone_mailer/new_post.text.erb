@@ -1,0 +1,8 @@
+Hi <%= @name %>,
+
+There is a new reply for the discussion: <%= @discussion.subject %>
+<%= url_for category_discussion_path(@discussion.category, @discussion) %>.
+
+<%= @post.author_name %> says:
+
+<%= @post.body %>

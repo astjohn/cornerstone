@@ -39,17 +39,34 @@ module Cornerstone
     def author_name
       self.posts.first.author_name
     end
-    
+
     # returns true if discussion is 'closed'
     def closed?
       self.status == Cornerstone::Discussion::STATUS.last
     end
-    
+
     # returns true if it was created by given user or if given user is an admin
     def created_by?(check_user)
       return false unless check_user.present?
-      return true if check_user.cornerstone_admin?      
+      return true if check_user.cornerstone_admin?
       self.user && self.user == check_user
+    end
+
+    # returns an array of participants for the discussion
+    def participants(exclude_email=nil)
+      ps = []
+      self.posts.each do |p|
+        if p.author_name && p.author_email
+          ps << [p.author_name, p.author_email]
+        end
+      end
+      ps.delete_if{|p| p[1] == exclude_email}.uniq
+    end
+
+    # return a nicely formatted string for emailing
+    # i.e. Name <email_address>, Name <email_address>
+    def participants_email_list(exclude_email=nil)
+      participants(exclude_email).collect{ |p| "#{p[0]} <#{p[1]}>" }.join(", ")
     end
 
     #######
@@ -71,4 +88,3 @@ module Cornerstone
   end
 
 end
-
