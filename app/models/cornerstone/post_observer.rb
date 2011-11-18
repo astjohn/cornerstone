@@ -9,6 +9,8 @@ module Cornerstone
         CornerstoneMailer.new_discussion(post, discussion).deliver
       else
         # If not first post, email participants of discussion
+
+        # do not email the author of this newly created post
         discussion.participants(post.author_email).each do |p|
           CornerstoneMailer.new_post(p[0], p[1], post, discussion).deliver
         end

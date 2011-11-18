@@ -15,7 +15,6 @@ module Cornerstone
       @discussion = discussion
       @name = name
 
-      # do not email the author of the newly created post
       mail :to => email,
            :subject => I18n.t('cornerstone.cornerstone_mailer.new_post.subject',
                               :topic => @discussion.subject)
