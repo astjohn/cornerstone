@@ -33,4 +33,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include Cornerstone::Engine.routes.url_helpers
+
+
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
 end

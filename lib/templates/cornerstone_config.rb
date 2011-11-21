@@ -26,6 +26,6 @@ Cornerstone::Config.setup do |config|
 
   # == Administrators emails
   # An array of strings which specify which users to email when a new discussion is created.
-  config.admin_emails = ["admins@cornerstone.com", "support@cornerstone.com"]
+  config.admin_emails = ["support@cornerstone.com"]
 
 end

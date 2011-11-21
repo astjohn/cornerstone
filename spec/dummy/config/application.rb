@@ -40,4 +40,3 @@ module Dummy
     config.assets.enabled = true
   end
 end
-

@@ -4,13 +4,25 @@ describe Cornerstone::PostObserver do
   describe "#after_create" do
 
     context "new discussion" do
-      it "sends the new discussion email" do
+      it "sends the new discussion email to admins" do
         discussion = Factory(:discussion_w_user)
         post = discussion.posts.first
         @observer = Cornerstone::PostObserver.instance
 
         mailer = mock("mailer")
         Cornerstone::CornerstoneMailer.should_receive(:new_discussion)
+                                      .with(post, discussion) {mailer}
+        mailer.should_receive(:deliver)
+
+        @observer.after_create(post)
+      end
+      it "sends the new discussion email to the user" do
+        discussion = Factory(:discussion_w_user)
+        post = discussion.posts.first
+        @observer = Cornerstone::PostObserver.instance
+
+        mailer = mock("mailer")
+        Cornerstone::CornerstoneMailer.should_receive(:new_discussion_user)
                                       .with(post, discussion) {mailer}
         mailer.should_receive(:deliver)
 

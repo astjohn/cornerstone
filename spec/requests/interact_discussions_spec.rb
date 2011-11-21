@@ -69,4 +69,35 @@ feature "Interact with Discussions" do
     current_path.should match new_discussion_path
     page.find("#discussion_category_id").value.should == @c1.id.to_s
   end
+
+  scenario "Reply to an existing discussion when logged in" do
+    sign_in_user
+    discussion = Factory(:discussion_w_user, :user => @user)
+    reply1 = Factory(:post, :discussion => discussion,
+                            :name => "Reply Author",
+                            :email => "email@email.com")
+
+
+    visit category_discussion_path(discussion.category, discussion)
+    fill_in "post_body", :with => "Please help me out. k thx."
+    click_button "Comment"
+    current_path.should match category_discussion_path(discussion.category, discussion)
+    page.should have_content "Comment was successfully created."
+  end
+
+  scenario "Reply to an existing discussion when not logged in" do
+    discussion = Factory(:discussion_w_user)
+    reply1 = Factory(:post, :discussion => discussion,
+                            :name => "Reply Author",
+                            :email => "email@email.com")
+
+
+    visit category_discussion_path(discussion.category, discussion)
+    fill_in "Name", :with => "Anonymous"
+    fill_in "Email", :with => "anonymous@whatever.com"
+    fill_in "post_body", :with => "Please help me out. k thx."
+    click_button "Comment"
+    current_path.should match category_discussion_path(discussion.category, discussion)
+    page.should have_content "Comment was successfully created."
+  end
 end

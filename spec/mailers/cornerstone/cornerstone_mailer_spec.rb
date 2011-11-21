@@ -16,6 +16,21 @@ describe Cornerstone::CornerstoneMailer do
     end
   end
 
+  describe "new_discussion_user" do
+    let(:discussion) { Factory(:discussion_w_user) }
+    let(:mail) { Cornerstone::CornerstoneMailer.new_discussion_user(discussion.posts.first, discussion) }
+
+    it "renders the headers" do
+      mail.subject.should eq(I18n.t('cornerstone.cornerstone_mailer.new_discussion_user.subject'))
+      mail.to.should eq([discussion.posts.first.author_email])
+      mail.from.should eq([Cornerstone::Config.mailer_from])
+    end
+
+    it "renders the body" do
+      mail.body.encoded.should match("Your discussion")
+    end
+  end
+
   describe "new_post" do
     let(:discussion) { Factory(:discussion_w_user) }
     let(:post) { discussion.posts.first }

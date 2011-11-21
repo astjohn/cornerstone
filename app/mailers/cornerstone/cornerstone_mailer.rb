@@ -9,6 +9,13 @@ module Cornerstone
       mail :to => Cornerstone::Config.admin_emails
     end
 
+    # Email user that created new discussion - refer to post observer
+    def new_discussion_user(post, discussion)
+      @post = post
+      @discussion = discussion
+      mail :to => post.author_email
+    end
+
     # Email a single participant within a discussion - refer to post observer
     def new_post(name, email, post, discussion)
       @post = post

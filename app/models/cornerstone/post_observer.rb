@@ -3,10 +3,12 @@ module Cornerstone
 
     def after_create(post)
       discussion = post.discussion
-
       if discussion.posts.count == 1
         # If first post (i.e. start of new discussion), email admin list
         CornerstoneMailer.new_discussion(post, discussion).deliver
+
+        # Also email user of the first post to let them know all is good.
+        CornerstoneMailer.new_discussion_user(post, discussion).deliver
       else
         # If not first post, email participants of discussion
 

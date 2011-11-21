@@ -1,5 +1,7 @@
 Dear <%= @post.author_name %>,
 
-Your discussion has been created.
+<p>Your discussion has been created.</p>
 
+<P>
 <%= url_for category_discussion_path(@discussion.category, @discussion) %>
+</p>

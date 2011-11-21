@@ -1,14 +1,11 @@
 TODO:
 
-* Observers for emailing participants and admins
--- Pehaps use config to store list of admins to email on new discussion.  Then use participants list.
 * Admin dashboard
 * Admin discussion list - sort by date and status, includes private discussions
 * Footers
 * General styling
 * Flash messages not working in admin namespace
 -- perhaps switch to responder gem with locales
-* Feature coverage
 * Spec coverage
 * Generater for views, javascript, stylesheets, locales, etc...
 * README
