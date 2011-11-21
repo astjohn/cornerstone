@@ -6,6 +6,8 @@ Gem::Specification.new do |s|
   s.summary = "A rails engine for customer care."
   s.description = "Cornerstone provides customer care capabilities to an existing" \
                   " application by adding things like discussions and a knowledge base."
+  s.homepage = "https://github.com/astjohn/cornerstone"
+
   s.files = `git ls-files`.split("\n")
   s.version  = IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 
