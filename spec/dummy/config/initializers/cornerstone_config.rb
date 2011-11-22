@@ -17,6 +17,7 @@ Cornerstone::Config.setup do |config|
   # == Discussion Statuses
   # An array of strings which specify the status options for a discussion.
   # The first status option becomes the default value used in the database.
+  # The last status option becomes the default value when a discussion is 'closed.'
   config.discussion_statuses = ["Open", "Resolved"]
 
   # == Mailer From Address
@@ -27,4 +28,9 @@ Cornerstone::Config.setup do |config|
   # An array of strings which specify which users to email when a new discussion is created.
   config.admin_emails = ["admins@cornerstone.com"]
 
+  # == User Input Sanitization
+  # Cornerstone relies on the wonderful Sanitize gem to sanitize user input.
+  # Specifically, sanitization will occur on the name, email and body attributes of a post.
+  # Please refer to: https://github.com/rgrove/sanitize
+  config.sanitize_options = Sanitize::Config::BASIC
 end

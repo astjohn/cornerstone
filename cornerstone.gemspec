@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.email  = "astjohn@gmail.com"
   s.date    = Date.today.to_s
   s.name    = "cornerstone"
-  s.summary = "A rails engine for customer care."
-  s.description = "Cornerstone provides customer care capabilities to an existing" \
+  s.summary = "A rails engine for customer support."
+  s.description = "Cornerstone provides customer support capabilities to an existing" \
                   " application by adding things like discussions and a knowledge base."
   s.homepage = "https://github.com/astjohn/cornerstone"
 
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency('rails',  '>= 3.1.0')
   s.add_dependency('i18n')
+  s.add_dependency('sanitize')
 
   s.add_development_dependency('bundler', '~> 1.0.0')
   s.add_development_dependency('sqlite3')

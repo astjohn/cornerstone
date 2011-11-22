@@ -28,4 +28,10 @@ Cornerstone::Config.setup do |config|
   # An array of strings which specify which users to email when a new discussion is created.
   config.admin_emails = ["support@cornerstone.com"]
 
+  # == User Input Sanitization
+  # Cornerstone relies on the wonderful Sanitize gem to sanitize user input.
+  # Specifically, sanitization will occur on the name, email and body attributes of a post.
+  # Please refer to: https://github.com/rgrove/sanitize
+  config.sanitize_options = Sanitize::Config::BASIC
+
 end

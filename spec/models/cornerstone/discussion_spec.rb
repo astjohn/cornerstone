@@ -104,8 +104,6 @@ describe Cornerstone::Discussion do
         @category = Factory(:category)
       end
 
-      pending "only updates on create"
-
       context "with no current user" do
         it "sets its category's latest discussion author name" do
           @discussion = Factory(:discussion, :category => @category)
@@ -134,6 +132,17 @@ describe Cornerstone::Discussion do
         @category.latest_discussion_date.should.to_s == time.to_s
       end
 
+      it "only updates on create" do
+        @discussion = Factory(:discussion, :category => @category)
+        @post = Factory(:post_no_user, :name => "Joe Dinglebat",
+                                       :discussion => @discussion)
+        @post2 = Factory(:post_no_user, :name => "Some Guy",
+                                        :discussion => @discussion)
+        @post.body = "Edited."
+        @post.save!
+        @category.reload
+        @category.latest_discussion_author.should == "Some Guy"
+      end
     end
   end
 

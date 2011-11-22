@@ -1,7 +1,5 @@
 Cornerstone::Engine.routes.draw do
 
-
-
   resources :discussions, :except => [:show] do
     resources :posts, :only => [:create, :edit, :update, :destroy]
   end
@@ -10,6 +8,10 @@ Cornerstone::Engine.routes.draw do
   get "/discussions/:category/:id" => "discussions#show", :as => "category_discussion"
   get "/discussions/:category" => "discussions#category", :as => "discussions_category"
 
+  # Custom routes for knowledge base
+  get "/knowledge/:category/:id" => "knowledgebase#show", :as => "category_article"
+  get "/knowledge/:category" => "knowledgebase#category", :as => "articles_category"
+  get "/knowledge/" => "knowledgebase#index", :as => "knowledge_base"
 
   root :to => "help#index"
 
@@ -21,4 +23,3 @@ Cornerstone::Engine.routes.draw do
   end
 
 end
-

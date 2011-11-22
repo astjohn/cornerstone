@@ -8,7 +8,7 @@ feature "Manage Articles" do
 
   scenario "Visit the home page" do
     page.should have_content("Browse Discussions")
-#    page.should have_content("Browse Knowledge Base")
+    page.should have_content("Browse Knowledge Base")
   end
 
   scenario "Browse discussions" do
@@ -17,9 +17,8 @@ feature "Manage Articles" do
   end
 
   scenario "Browse knowledge base" do
-    pending
-#    click_link "Browse Knowledge Base"
-#    current_path.should match knowledge_base_path
+    click_link "Browse Knowledge Base"
+    current_path.should match knowledge_base_path
   end
 
 

@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= link_to article_category.name, articles_category_path(article_category),
+                                 :title => article_category.name %>
+    <span class="article_category_description"><%= article_category.description %></span>
+  </td>
+  <td>
+    <%= article_category.item_count %>
+  </td>
+</tr>

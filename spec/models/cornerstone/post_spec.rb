@@ -112,8 +112,6 @@ describe Cornerstone::Post do
         @discussion = Factory(:discussion)
       end
 
-      pending "only updates on create"
-
       context "with no current user" do
         it "sets its discussion's latest post author name" do
           @post = Factory(:post_no_user, :name => "Joe Dinglebat",
@@ -132,12 +130,49 @@ describe Cornerstone::Post do
         end
       end
 
+      it "only updates on create" do
+        @post = Factory(:post_no_user, :name => "Joe Dinglebat",
+                                       :discussion => @discussion)
+        @post2 = Factory(:post_no_user, :name => "Some Guy",
+                                        :discussion => @discussion)
+        @post.reload
+        @post.body = "changed"
+        @post.save!
+        @discussion.reload
+        @discussion.latest_post_author.should == "Some Guy"
+      end
+
       it "sets its category's latest discussion date" do
         time = 1.hour.from_now
         Time.stub(:now) {time}
         @post = Factory(:post_no_user, :discussion => @discussion)
         @discussion.reload
         @discussion.latest_post_date.should.to_s == time.to_s
+      end
+
+    end
+
+    describe "#sanitize_attributes" do
+
+      it "sanitizes the name" do
+        @post = Factory(:post_no_user, :name => "<script type='text/javascript'>" \
+                                                "Mr. Sneaky</script>")
+        @post.save!
+        @post.name.should == "Mr. Sneaky"
+      end
+
+      it "still allows valid emails" do
+        @post = Factory(:post_w_user, :email => "valid@valid.com")
+        @post.save!
+        @post.email.should == "valid@valid.com"
+      end
+
+      it "sanitizes the body" do
+        @post = Factory(:post_w_user,
+                        :body => "<script type='text/javascript'>alert('hi');</script>" \
+                                 "<p>Whatever</p>")
+        @post.save!
+        @post.body.should == "alert('hi');<p>Whatever</p>"
       end
 
     end
@@ -170,7 +205,7 @@ describe Cornerstone::Post do
         @post.author_email.should == "alice@wundersmut.com"
       end
     end
-    
+
     describe "#created_by" do
       before do
         @user = Factory(:user)
@@ -202,9 +237,8 @@ describe Cornerstone::Post do
         @post.created_by?(@user2).should == false
       end
     end
-    
-    
+
+
   end
 
 end
-

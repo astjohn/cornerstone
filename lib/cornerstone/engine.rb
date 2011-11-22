@@ -1,3 +1,5 @@
+require 'sanitize'
+
 module Cornerstone
   class Engine < Rails::Engine
     engine_name "cornerstone"

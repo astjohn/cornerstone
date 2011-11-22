@@ -1,0 +1,15 @@
+<h1>Articles for <%= @category.name.titleize %></h1>
+<p><%= @category.description %></p>
+<table id="articles">
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% unless @articles.empty? %>
+    <%= render :partial => "article", :collection => @articles,
+                                      :locals => {:category => @category} %>
+  <% else %>
+    <tr>
+      <td>There are no articles for this category yet.</td>
+    </tr>
+  <% end %>
+</table>

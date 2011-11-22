@@ -28,6 +28,10 @@ module Cornerstone
     mattr_accessor :admin_emails
     @@admin_emails = []
 
+    # Sanitize Options
+    mattr_accessor :sanitize_options
+    @@sanitize_options = Sanitize::Config::BASIC
+
   end
 
 end

@@ -1,7 +1,7 @@
 <div class="post">
   <% if post.created_by?(current_cornerstone_user) %>
     <div class="actions">
-      <%= link_to "EDIT", edit_discussion_post_path(discussion, post) %> | 
+      <%= link_to "EDIT", edit_discussion_post_path(discussion, post) %> |
       <%= link_to "REMOVE", [discussion, post], :method => :delete,
                                                 :confirm => 'Are you sure?' %>
     </div>
@@ -14,4 +14,3 @@
     <%= post.body %>
   </div>
 </div>
-

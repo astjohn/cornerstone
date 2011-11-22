@@ -26,14 +26,13 @@ module Cornerstone
 
     # == CALLBACKS == #
     after_save :update_counter_cache
-    after_save :set_latest_post, :on => :create
-
+    after_create :set_latest_post
+    before_save :sanitize_attributes
     after_destroy :update_counter_cache
 
 
 
 
-    # TODO: SANITATION ON NAME BODY EMAIL
 
     # == CLASS METHODS == #
 
@@ -55,13 +54,21 @@ module Cornerstone
     # returns true if it was created by given user or if given user is an admin
     def created_by?(check_user)
       return false unless check_user.present?
-      return true if check_user.cornerstone_admin?      
+      return true if check_user.cornerstone_admin?
       self.user && self.user == check_user
     end
-    
+
     #######
     private
     #######
+
+    # sanitize attributes
+    def sanitize_attributes
+      [:name, :email, :body].each do |attr|
+        self.send("#{attr}=", Sanitize.clean(self.send(attr),
+                              Cornerstone::Config.sanitize_options))
+      end
+    end
 
     # Custom counter cache.  Does not include the first post of a discussion.
     def update_counter_cache
@@ -89,15 +96,13 @@ module Cornerstone
 
     # Update the discussion's latest post author/date
     def set_latest_post
-      discussion = self.discussion
-      if discussion
-        discussion.latest_post_author = self.author_name
-        discussion.latest_post_date = Time.now.to_s(:db)
-        discussion.save
+      unless self.discussion.nil?
+        self.discussion.latest_post_author = self.author_name
+        self.discussion.latest_post_date = Time.now.to_s(:db)
+        self.discussion.save
       end
     end
 
 
   end
 end
-

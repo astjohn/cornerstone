@@ -31,7 +31,7 @@ module Cornerstone
     validates :category, :presence => true
 
     # == CALLBACKS == #
-    after_save :set_latest_discussion, :on => :create
+    after_save :set_latest_discussion
 
     # == CLASS METHODS == #
 
@@ -75,7 +75,7 @@ module Cornerstone
 
     # Update the category's latest discussion author/date
     def set_latest_discussion
-      post = self.posts.first
+      post = self.posts.last
       if post
         cat = self.category
         cat.latest_discussion_author = post.author_name

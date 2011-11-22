@@ -1,0 +1,18 @@
+<h1>Knowledge Base</h1>
+
+<p>Welcome to the knowledge base.  Please browse our list of articles based on common questions and see if they're helpful for your problem.</p>
+
+<table id="article_categories">
+  <tr>
+    <th>Category</th>
+    <th>Article Count</th>
+  </tr>
+  <% unless @categories.empty? %>
+    <%= render :partial => "article_category", :collection => @categories %>
+  <% else %>
+    <tr>
+      <td>There are no categories yet.</td>
+      <td>N/A</td>
+    </tr>
+  <% end %>
+</table>

@@ -3,7 +3,7 @@ module Cornerstone
     # == CONSTANTS == #
 
     # == ASSOCIATIONS == #
-    belongs_to :category
+    belongs_to :category, :counter_cache => :item_count
 
     # == ACCESSIBILITY == #
     # == SCOPES == #
@@ -17,4 +17,3 @@ module Cornerstone
 
   end
 end
-

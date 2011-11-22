@@ -3,9 +3,11 @@ TODO:
 * Admin dashboard
 * Admin discussion list - sort by date and status, includes private discussions
 * Footers
+* Captcha or honeypot
+* Breadcrumbs on discussions and articles
 * General styling
 * Flash messages not working in admin namespace
 -- perhaps switch to responder gem with locales
 * Spec coverage
-* Generater for views, javascript, stylesheets, locales, etc...
+* Generater for views, javascript, stylesheets, locales, mailer etc...
 * README

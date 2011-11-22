@@ -8,4 +8,3 @@ module Cornerstone
 
   end
 end
-
